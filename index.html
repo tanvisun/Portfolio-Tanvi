@@ -3,24 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Visualization Portfolio</title>
+    <title>Lumos - Data Visualization Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Floating Candles Background -->
+    <div class="floating-candles">
+        <div class="candle"></div>
+        <div class="candle"></div>
+        <div class="candle"></div>
+        <div class="candle"></div>
+        <div class="candle"></div>
+
+    </div>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar lumos-navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <i class="fas fa-chart-line"></i>
-                <span>Data Viz Portfolio</span>
+                <i class="fas fa-hat-wizard"></i>
+                <span>Lumos Portfolio</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li>
+                    <button id="toggle-dark" class="lumos-toggle">
+                        <i class="fas fa-magic"></i> Lumos
+                    </button>
+                </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -31,35 +45,29 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero lumos-hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Data Visualization <span class="highlight">Portfolio</span></h1>
-                <p class="hero-subtitle">Transforming data into compelling visual stories with JavaScript</p>
+                <h1 class="hero-title">Lumos <span class="highlight">Portfolio</span></h1>
+                <p class="hero-subtitle">Turning data into magic with interactive visualizations</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                    <a href="#projects" class="btn btn-primary lumos-btn">View Projects</a>
+                    <a href="#about" class="btn btn-secondary lumos-btn">Learn More</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="floating-chart">
-                    <div class="chart-bar" style="height: 60%"></div>
-                    <div class="chart-bar" style="height: 80%"></div>
-                    <div class="chart-bar" style="height: 45%"></div>
-                    <div class="chart-bar" style="height: 90%"></div>
-                    <div class="chart-bar" style="height: 70%"></div>
-                </div>
+                <div class="wand-animation"></div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about lumos-about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a data visualization enthusiast with expertise in creating interactive and insightful visualizations using modern web technologies. My projects demonstrate proficiency in D3.js, Vue.js, R Markdown, and various data visualization frameworks.</p>
+                    <p>I'm a data wizard with a passion for conjuring interactive and insightful visualizations using modern web magic. My spellbook includes D3.js, Vue.js, R Markdown, and more.</p>
                     <div class="skills">
                         <h3>Technologies & Skills</h3>
                         <div class="skill-tags">
@@ -87,7 +95,7 @@
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">Interactive</div>
+                        <div class="stat-label">Magical</div>
                     </div>
                 </div>
             </div>
@@ -95,7 +103,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects lumos-projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
@@ -115,13 +123,9 @@
                             <span class="tech-tag">Bootstrap</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link" onclick="launchProject('countries-dashboard')">
+                            <a href="https://tanvisun.github.io/DATAVISUALIZATION-1/" class="project-link" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
-                                Launch Project
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Code
+                                Live Demo
                             </a>
                         </div>
                     </div>
@@ -148,10 +152,6 @@
                                 <i class="fas fa-external-link-alt"></i>
                                 Live Demo
                             </a>
-                            <a href="https://github.com/DSCI-554/project-skytrackers" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i>
-                                Code
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -172,19 +172,15 @@
                             <span class="tech-tag">CSV Data</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link" onclick="launchProject('assignment-1')">
+                            <a href="https://tanvisun.github.io/google-charts-viz/" class="project-link" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
-                                Launch Project
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Code
+                                Live Demo
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 4: R Markdown Data Analysis -->
+                <!-- Project 4: DATA-VISUALIZATION-2 -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
@@ -192,55 +188,93 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">R Markdown Data Analysis</h3>
-                        <p class="project-description">Comprehensive data analysis using R Markdown with interactive visualizations for import/export and threatened species data.</p>
+                        <h3 class="project-title">DATA-VISUALIZATION-2 Analysis</h3>
+                        <p class="project-description">Comprehensive data analysis using R Markdown and Jupyter notebooks with interactive visualizations for threatened species data and statistical analysis.</p>
                         <div class="project-tech">
                             <span class="tech-tag">R Markdown</span>
-                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">Jupyter Notebook</span>
+                            <span class="tech-tag">Python</span>
                             <span class="tech-tag">HTML</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link" onclick="launchProject('dv2')">
+                            <a href="https://github.com/tanvisun/DATA-VISUALIZATION-2/blob/main/DV.html" class="project-link" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
-                                Launch Project
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Code
+                                View Analysis
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 5: Interactive Data Dashboard -->
+                <!-- Project 5: DATA-VISUALIZATION-3 -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <i class="fas fa-network-wired"></i>
+                            <i class="fas fa-database"></i>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Interactive Data Dashboard</h3>
-                        <p class="project-description">Multi-component dashboard with advanced D3.js visualizations, responsive design, and real-time data interaction capabilities.</p>
+                        <h3 class="project-title">DATA-VISUALIZATION-3</h3>
+                        <p class="project-description">Data visualization project using HTML and JavaScript. Explore interactive charts and data-driven insights.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">Bootstrap</span>
-                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link" onclick="launchProject('dvhw5')">
+                            <a href="https://tanvisun.github.io/DATA-VISUALIZATION-3/" class="project-link" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
-                                Launch Project
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Code
+                                Live Demo
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 6: Data Visualization Portfolio -->
+                <!-- Project 6: DATA-VISUALIZATION-4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">DATA-VISUALIZATION-4</h3>
+                        <p class="project-description">Vue.js-based data visualization project with advanced interactive features and modern UI.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://tanvisun.github.io/DATA-VISUALIZATION-4/" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: DATA-VISUALIZATION-5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">DATA-VISUALIZATION-5</h3>
+                        <p class="project-description">Vue.js country dashboard with multiple interactive charts and data exploration features.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://tanvisun.github.io/DATA-VISUALIZATION-5/" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: Data Visualization Portfolio -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
@@ -256,11 +290,11 @@
                             <span class="tech-tag">JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">
+                            <a href="https://tanvisun.github.io/Portfolio-Tanvi/" class="project-link" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
                                 Live Demo
                             </a>
-                            <a href="https://github.com/tanvisun" class="project-link">
+                            <a href="https://github.com/tanvisun/Portfolio-Tanvi" class="project-link" target="_blank">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </a>
