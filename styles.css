@@ -66,29 +66,29 @@ body {
 
 .particle {
     position: absolute;
-    width: 6px; /* Even smaller candle size */
-    height: 10px; /* Even smaller candle size */
+    width: 8px; /* Slightly larger for visibility */
+    height: 12px; /* Slightly larger for visibility */
     background: linear-gradient(to bottom, #ffd700, #ff6b35, #ff4500);
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     box-shadow: 
-        0 0 8px #ffd700,
-        0 0 16px #ff6b35,
-        0 0 24px #ff4500;
+        0 0 15px #ffd700,
+        0 0 25px #ff6b35,
+        0 0 35px #ff4500;
     animation: float-candle 8s ease-in-out infinite;
-    opacity: 0.9;
+    opacity: 1;
 }
 
 .particle::before {
     content: '';
     position: absolute;
-    top: -1px;
+    top: -2px;
     left: 50%;
     transform: translateX(-50%);
-    width: 1px;
-    height: 3px;
+    width: 2px;
+    height: 4px;
     background: #ffd700;
     border-radius: 50%;
-    box-shadow: 0 0 3px #ffd700;
+    box-shadow: 0 0 8px #ffd700;
 }
 
 .particle:nth-child(1) {
@@ -191,7 +191,7 @@ body {
 @keyframes float-candle {
     0%, 100% {
         transform: translateY(0px) rotate(0deg);
-        opacity: 0.7;
+        opacity: 0.8;
     }
     25% {
         transform: translateY(-15px) rotate(3deg);
@@ -199,7 +199,7 @@ body {
     }
     50% {
         transform: translateY(-8px) rotate(-2deg);
-        opacity: 0.8;
+        opacity: 0.9;
     }
     75% {
         transform: translateY(-12px) rotate(1deg);
@@ -332,11 +332,25 @@ body {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: #ffffff;
+    color: #ffd700;
+    text-shadow: 0 0 15px #ffd700;
+    animation: title-glow 4s ease-in-out infinite;
 }
 
 .highlight {
-    color: #ffffff;
+    color: #ffd700;
+    text-shadow: 0 0 15px #ffd700;
+}
+
+@keyframes title-glow {
+    0%, 100% { 
+        text-shadow: 0 0 15px #ffd700;
+        opacity: 1;
+    }
+    50% { 
+        text-shadow: 0 0 25px #ffd700, 0 0 35px #ffd700;
+        opacity: 1;
+    }
 }
 
 .hero-subtitle {
@@ -361,23 +375,37 @@ body {
 
 .subtitle-part-1 {
     animation: glow-text 3s ease-in-out infinite;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
 }
 
 .subtitle-part-2 {
-    animation: glow-text 3s ease-in-out infinite;
-    animation-delay: 1.5s;
+    animation: fade-in-text 2s ease-in-out 1s both;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
 }
 
 @keyframes glow-text {
     0%, 100% { 
-        text-shadow: 0 0 5px var(--midnight-blue);
+        text-shadow: 0 0 10px #ffd700;
         opacity: 0.9;
         transform: scale(1);
     }
     50% { 
-        text-shadow: 0 0 20px var(--midnight-blue), 0 0 30px var(--midnight-blue);
+        text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700;
         opacity: 1;
         transform: scale(1.05);
+    }
+}
+
+@keyframes fade-in-text {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -524,7 +552,7 @@ body {
 .stat-item {
     text-align: center;
     padding: 2rem;
-    background: #0f0f2a;
+    background: #c9e8fd;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -532,13 +560,13 @@ body {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #191970;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
     font-size: 1rem;
-    color: #ffffff;
+    color: #191970;
     font-weight: 500;
 }
 
@@ -557,7 +585,7 @@ body {
 }
 
 .project-card {
-    background: #0f0f2a;
+    background: #c9e8fd;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -577,7 +605,7 @@ body {
 .project-image {
     height: 200px;
     width: 200px;
-    background: #191970;
+    background: #003C79;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -611,11 +639,11 @@ body {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #ffffff;
+    color: #191970;
 }
 
 .project-description {
-    color: #d1d5db;
+    color: #4a5568;
     margin-bottom: 1rem;
     line-height: 1.6;
 }
@@ -698,7 +726,7 @@ body {
 }
 
 .contact-form {
-    background: #0f0f2a;
+    background: #c9e8fd;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
