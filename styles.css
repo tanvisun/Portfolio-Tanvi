@@ -52,7 +52,7 @@ body {
     background: #ffffff;
 }
 
-/* Floating Candles - Smaller and positioned away from text */
+/* Floating Candles - Much more visible */
 .magic-particles {
     position: fixed;
     top: 0;
@@ -66,29 +66,31 @@ body {
 
 .particle {
     position: absolute;
-    width: 8px; /* Slightly larger for visibility */
-    height: 12px; /* Slightly larger for visibility */
+    width: 15px; /* Much larger candle size */
+    height: 20px; /* Much larger candle size */
     background: linear-gradient(to bottom, #ffd700, #ff6b35, #ff4500);
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     box-shadow: 
-        0 0 15px #ffd700,
-        0 0 25px #ff6b35,
-        0 0 35px #ff4500;
+        0 0 25px #ffd700,
+        0 0 35px #ff6b35,
+        0 0 45px #ff4500;
     animation: float-candle 8s ease-in-out infinite;
     opacity: 1;
+    /* Temporary bright background to ensure visibility */
+    border: 2px solid #ff0000;
 }
 
 .particle::before {
     content: '';
     position: absolute;
-    top: -2px;
+    top: -3px;
     left: 50%;
     transform: translateX(-50%);
-    width: 2px;
-    height: 4px;
+    width: 3px;
+    height: 6px;
     background: #ffd700;
     border-radius: 50%;
-    box-shadow: 0 0 8px #ffd700;
+    box-shadow: 0 0 15px #ffd700;
 }
 
 .particle:nth-child(1) {
@@ -191,18 +193,18 @@ body {
 @keyframes float-candle {
     0%, 100% {
         transform: translateY(0px) rotate(0deg);
-        opacity: 0.8;
+        opacity: 1;
     }
     25% {
-        transform: translateY(-15px) rotate(3deg);
+        transform: translateY(-20px) rotate(5deg);
         opacity: 1;
     }
     50% {
-        transform: translateY(-8px) rotate(-2deg);
-        opacity: 0.9;
+        transform: translateY(-10px) rotate(-3deg);
+        opacity: 1;
     }
     75% {
-        transform: translateY(-12px) rotate(1deg);
+        transform: translateY(-15px) rotate(2deg);
         opacity: 1;
     }
 }
