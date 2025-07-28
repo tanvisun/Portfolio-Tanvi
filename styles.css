@@ -18,7 +18,7 @@ body {
     line-height: 1.6;
     color: #ffffff;
     overflow-x: hidden;
-    background: linear-gradient(135deg, #191970 0%, #2c2c2c 25%, #191970 50%, #2c2c2c 75%, #191970 100%);
+    background: rgba(25, 25, 112, 0.2);
     background-size: cover;
     position: relative;
     min-height: 100vh;
@@ -205,7 +205,7 @@ body::before {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #191970 0%, #2c2c2c 100%);
+    background: rgba(25, 25, 112, 0.2);
     color: white;
     position: relative;
     overflow: hidden;
@@ -261,8 +261,16 @@ body::before {
 }
 
 .animated-subtitle {
-    animation: glow-text 3s ease-in-out infinite;
     margin-bottom: 2rem;
+}
+
+.subtitle-part-1 {
+    animation: glow-text 3s ease-in-out infinite;
+}
+
+.subtitle-part-2 {
+    animation: glow-text 3s ease-in-out infinite;
+    animation-delay: 1.5s;
 }
 
 @keyframes glow-text {
@@ -442,7 +450,7 @@ body::before {
 /* Projects Section */
 .projects {
     padding: 100px 0;
-    background: rgba(25, 25, 112, 0.3);
+    background: rgba(25, 25, 112, 0.2);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
@@ -478,7 +486,7 @@ body::before {
 .project-image {
     height: 200px;
     width: 200px;
-    background: linear-gradient(135deg, var(--gryffindor-crimson) 0%, var(--gryffindor-charcoal) 100%);
+    background: #191970;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -488,7 +496,19 @@ body::before {
 .project-placeholder {
     color: white;
     font-size: 3rem;
-    opacity: 0.8;
+    opacity: 1;
+    animation: icon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
 }
 
 .project-content {
