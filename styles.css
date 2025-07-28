@@ -149,12 +149,12 @@ body::before {
 
 .candle {
     position: absolute;
-    width: 15px;
-    height: 40px;
+    width: 8px;
+    height: 25px;
     background: linear-gradient(to bottom, var(--gryffindor-gold), #f39c12);
-    border-radius: 8px 8px 0 0;
+    border-radius: 4px 4px 0 0;
     animation: float-candle 6s ease-in-out infinite;
-    box-shadow: 0 0 8px var(--gryffindor-gold);
+    box-shadow: 0 0 6px var(--gryffindor-gold);
 }
 
 .candle::before {
@@ -254,6 +254,24 @@ body::before {
 .hero-buttons {
     display: flex;
     gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.animated-subtitle {
+    animation: glow-text 3s ease-in-out infinite;
+}
+
+@keyframes glow-text {
+    0%, 100% { 
+        text-shadow: 0 0 5px var(--gryffindor-gold);
+        opacity: 0.9;
+    }
+    50% { 
+        text-shadow: 0 0 20px var(--gryffindor-gold), 0 0 30px var(--gryffindor-gold);
+        opacity: 1;
+    }
 }
 
 .btn {
@@ -420,7 +438,7 @@ body::before {
 /* Projects Section */
 .projects {
     padding: 100px 0;
-    background: rgba(127, 9, 9, 0.2);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
@@ -434,7 +452,7 @@ body::before {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(25, 25, 112, 0.8);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
