@@ -30,17 +30,17 @@ body {
 }
 
 .lumos-dark .navbar {
-    background: rgba(10, 10, 35, 0.95);
+    background: rgba(10, 10, 35, 0.95) !important;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
 .lumos-dark .nav-logo {
-    color: #ffffff;
+    color: #191970 !important;
 }
 
 .lumos-dark .nav-link {
-    color: #ffffff;
+    color: #191970 !important;
 }
 
 .lumos-dark .nav-link:hover {
@@ -48,7 +48,21 @@ body {
 }
 
 .lumos-dark .bar {
-    background: #ffffff;
+    background: #191970 !important;
+}
+
+/* Force midnight blue theme for navbar */
+body.lumos-dark .navbar {
+    background: rgba(10, 10, 35, 0.95) !important;
+}
+
+body.lumos-dark .nav-logo,
+body.lumos-dark .nav-logo i {
+    color: #191970 !important;
+}
+
+body.lumos-dark .nav-link {
+    color: #191970 !important;
 }
 
 /* Fresh Floating Candles - Only in Hero Section */
