@@ -18,7 +18,7 @@ body {
     line-height: 1.6;
     color: #ffffff;
     overflow-x: hidden;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2c2c2c 50%, #1a1a1a 75%, #0a0a0a 100%), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+    background: linear-gradient(135deg, #0a0a0a 0%, #191970 25%, #2c2c2c 50%, #191970 75%, #0a0a0a 100%), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
     background-size: cover;
     position: relative;
     min-height: 100vh;
@@ -224,12 +224,12 @@ body::before {
     text-align: center;
     max-width: 600px;
     padding: 3rem;
-    background: rgba(0, 0, 0, 0.4);
+    background: transparent;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 2px solid var(--gryffindor-gold);
-    box-shadow: 0 0 30px rgba(255, 197, 0, 0.3);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
     position: relative;
     z-index: 20;
 }
@@ -257,20 +257,24 @@ body::before {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 0;
 }
 
 .animated-subtitle {
     animation: glow-text 3s ease-in-out infinite;
+    margin-bottom: 2rem;
 }
 
 @keyframes glow-text {
     0%, 100% { 
         text-shadow: 0 0 5px var(--gryffindor-gold);
         opacity: 0.9;
+        transform: scale(1);
     }
     50% { 
         text-shadow: 0 0 20px var(--gryffindor-gold), 0 0 30px var(--gryffindor-gold);
         opacity: 1;
+        transform: scale(1.05);
     }
 }
 
