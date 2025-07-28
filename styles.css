@@ -51,7 +51,7 @@ body {
     background: #ffffff;
 }
 
-/* Fresh Floating Candles - Simple and Visible */
+/* Fresh Floating Candles - Static Background */
 .candles-container {
     position: fixed;
     top: 0;
@@ -59,21 +59,19 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 99999;
+    z-index: 1;
 }
 
 .candle {
     position: absolute;
-    width: 20px; /* Make them bigger */
-    height: 30px; /* Make them bigger */
+    width: 15px;
+    height: 22px;
     background: #ffd700;
-    border-radius: 10px 10px 0 0;
+    border-radius: 7px 7px 0 0;
     box-shadow: 
         0 0 15px #ffd700,
-        0 0 25px #ffd700,
-        0 0 35px #ffd700;
+        0 0 30px #ffd700;
     animation: float 4s ease-in-out infinite;
-    border: 2px solid #ff0000; /* Red border for visibility */
 }
 
 .candle::before {
@@ -82,10 +80,10 @@ body {
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 6px;
+    width: 5px;
     height: 10px;
     background: #ff6b35;
-    border-radius: 3px 3px 0 0;
+    border-radius: 2px 2px 0 0;
     box-shadow: 0 0 10px #ff6b35;
 }
 
@@ -95,8 +93,8 @@ body {
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     background: #ff4500;
     border-radius: 50%;
     box-shadow: 0 0 12px #ff4500;
@@ -136,7 +134,7 @@ body {
     background: rgba(255, 255, 255, 0.95);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    z-index: 1000;
+    z-index: 100;
     padding: 1rem 0;
     transition: all 0.3s ease;
 }
@@ -228,7 +226,7 @@ body {
     border: none;
     box-shadow: none;
     position: relative;
-    z-index: 20;
+    z-index: 50;
 }
 
 .hero-title {
@@ -262,41 +260,44 @@ body {
     margin-top: 0;
 }
 
+/* Animated Subtitle */
 .animated-subtitle {
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 
 .subtitle-part-1 {
-    animation: glow-text 3s ease-in-out infinite;
     color: #ffd700;
     text-shadow: 0 0 10px #ffd700;
+    animation: glow-text 2s ease-in-out infinite;
+    opacity: 1;
 }
 
 .subtitle-part-2 {
-    animation: fade-in-text 2s ease-in-out 1s both;
     color: #ffd700;
     text-shadow: 0 0 10px #ffd700;
+    animation: fade-in-text 3s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 1s;
 }
 
 @keyframes glow-text {
-    0%, 100% { 
+    0%, 100% {
         text-shadow: 0 0 10px #ffd700;
-        opacity: 0.9;
-        transform: scale(1);
     }
-    50% { 
+    50% {
         text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700;
-        opacity: 1;
-        transform: scale(1.05);
     }
 }
 
 @keyframes fade-in-text {
-    0% {
+    0%, 40% {
         opacity: 0;
         transform: translateY(10px);
     }
-    100% {
+    60%, 100% {
         opacity: 1;
         transform: translateY(0);
     }
