@@ -1,3 +1,11 @@
+/* Gryffindor Color Palette */
+:root {
+    --gryffindor-crimson: #7F0909;
+    --gryffindor-gold: #FFC500;
+    --gryffindor-charcoal: #1a1a1a;
+    --gryffindor-dark: #2c2c2c;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -10,7 +18,7 @@ body {
     line-height: 1.6;
     color: #ffffff;
     overflow-x: hidden;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+    background: linear-gradient(135deg, var(--gryffindor-charcoal) 0%, var(--gryffindor-dark) 100%), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
     background-size: cover;
     position: relative;
     min-height: 100vh;
@@ -60,7 +68,7 @@ body::before {
     align-items: center;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: var(--gryffindor-crimson);
 }
 
 .nav-logo i {
@@ -82,7 +90,9 @@ body::before {
 }
 
 .nav-link:hover {
-    color: #2563eb;
+    color: var(--gryffindor-gold);
+    text-shadow: 0 0 10px var(--gryffindor-gold);
+    transition: 0.3s;
 }
 
 .hamburger {
@@ -114,10 +124,10 @@ body::before {
     position: absolute;
     width: 15px;
     height: 40px;
-    background: linear-gradient(to bottom, #f4d03f, #f39c12);
+    background: linear-gradient(to bottom, var(--gryffindor-gold), #f39c12);
     border-radius: 8px 8px 0 0;
     animation: float-candle 6s ease-in-out infinite;
-    box-shadow: 0 0 8px rgba(241, 196, 15, 0.6);
+    box-shadow: 0 0 8px var(--gryffindor-gold);
 }
 
 .candle::before {
@@ -128,7 +138,7 @@ body::before {
     transform: translateX(-50%);
     width: 8px;
     height: 20px;
-    background: linear-gradient(to bottom, #f39c12, #e67e22);
+    background: linear-gradient(to bottom, #f39c12, var(--gryffindor-gold));
     border-radius: 4px 4px 0 0;
     animation: flicker 2s ease-in-out infinite;
 }
@@ -141,7 +151,7 @@ body::before {
     transform: translateX(-50%);
     width: 12px;
     height: 12px;
-    background: radial-gradient(circle, #f1c40f, #f39c12);
+    background: radial-gradient(circle, var(--gryffindor-gold), #f39c12);
     border-radius: 50%;
     animation: glow 3s ease-in-out infinite;
 }
@@ -159,8 +169,8 @@ body::before {
 }
 
 @keyframes glow {
-    0%, 100% { box-shadow: 0 0 10px #f1c40f; }
-    50% { box-shadow: 0 0 20px #f39c12, 0 0 30px #e67e22; }
+    0%, 100% { box-shadow: 0 0 10px var(--gryffindor-gold); }
+    50% { box-shadow: 0 0 20px var(--gryffindor-gold), 0 0 30px var(--gryffindor-crimson); }
 }
 
 /* Hero Section */
@@ -168,7 +178,7 @@ body::before {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%);
+    background: linear-gradient(135deg, var(--gryffindor-crimson) 0%, var(--gryffindor-charcoal) 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -192,7 +202,7 @@ body::before {
 }
 
 .highlight {
-    color: #fbbf24;
+    color: var(--gryffindor-gold);
 }
 
 .hero-subtitle {
@@ -218,13 +228,15 @@ body::before {
 }
 
 .btn-primary {
-    background: #fbbf24;
-    color: #1f2937;
+    background: var(--gryffindor-gold);
+    color: var(--gryffindor-crimson);
 }
 
 .btn-primary:hover {
-    background: #f59e0b;
+    background: var(--gryffindor-crimson);
+    color: var(--gryffindor-gold);
     transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--gryffindor-gold);
 }
 
 .btn-secondary {
@@ -267,6 +279,26 @@ body::before {
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
+}
+
+/* Gryffindor Crest Styles */
+.gryffindor-crest {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.gryffindor-crest img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--gryffindor-gold);
+    box-shadow: 0 0 20px var(--gryffindor-gold);
+    transition: all 0.3s ease;
+}
+
+.gryffindor-crest img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px var(--gryffindor-gold);
 }
 
 /* About Section */
@@ -376,14 +408,14 @@ body::before {
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(241, 196, 15, 0.3);
-    border-color: #f1c40f;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 20px var(--gryffindor-gold);
+    border-color: var(--gryffindor-gold);
 }
 
 .project-image {
     height: 200px;
     width: 200px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--gryffindor-crimson) 0%, var(--gryffindor-charcoal) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
