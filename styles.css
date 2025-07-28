@@ -18,7 +18,7 @@ body {
     line-height: 1.6;
     color: #ffffff;
     overflow-x: hidden;
-    background: #0a0a23; /* Midnight blue background */
+    background: linear-gradient(135deg, #0a0a23 0%, #1a1a4a 50%, #0a0a23 100%);
     background-size: cover;
     position: relative;
     min-height: 100vh;
@@ -26,7 +26,7 @@ body {
 
 /* Lumos Theme - Midnight Blue Background */
 .lumos-dark {
-    background: #0a0a23; /* Midnight blue background */
+    background: linear-gradient(135deg, #0a0a23 0%, #1a1a4a 50%, #0a0a23 100%);
     color: white;
 }
 
@@ -60,7 +60,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 5;
     overflow: hidden;
 }
 
@@ -225,12 +225,13 @@ body {
     align-items: center;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--midnight-blue);
+    color: #ffffff;
 }
 
 .nav-logo i {
     margin-right: 0.5rem;
     font-size: 1.8rem;
+    color: #ffffff;
 }
 
 .nav-menu {
@@ -305,17 +306,18 @@ body {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: var(--midnight-blue);
+    color: #ffffff;
 }
 
 .highlight {
-    color: var(--midnight-blue);
+    color: #ffffff;
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+    color: #ffffff;
 }
 
 .hero-buttons {
@@ -441,7 +443,7 @@ body {
 /* About Section */
 .about {
     padding: 100px 0;
-    background: #0a0a23;
+    background: linear-gradient(135deg, #0a0a23 0%, #1a1a4a 50%, #0a0a23 100%);
 }
 
 .section-title {
@@ -478,13 +480,13 @@ body {
 }
 
 .skill-tag {
-    background: var(--midnight-blue);
-    color: var(--white);
+    background: transparent;
+    color: #ffffff;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
-    border: 1px solid var(--white);
+    border: 1px solid #ffffff;
 }
 
 .about-stats {
@@ -504,7 +506,7 @@ body {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #4a9eff;
+    color: #ffffff;
     margin-bottom: 0.5rem;
 }
 
@@ -517,7 +519,7 @@ body {
 /* Projects Section */
 .projects {
     padding: 100px 0;
-    background: #0a0a23;
+    background: linear-gradient(135deg, #0a0a23 0%, #1a1a4a 50%, #0a0a23 100%);
 }
 
 .projects-grid {
@@ -630,7 +632,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 100px 0;
-    background: #0a0a23;
+    background: linear-gradient(135deg, #0a0a23 0%, #1a1a4a 50%, #0a0a23 100%);
 }
 
 .contact-content {
@@ -698,7 +700,7 @@ body {
 
 /* Footer */
 .footer {
-    background: #0a0a23;
+    background: linear-gradient(135deg, #0a0a23 0%, #1a1a4a 50%, #0a0a23 100%);
     color: white;
     padding: 2rem 0;
 }
