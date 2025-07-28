@@ -101,6 +101,24 @@ body::before {
     cursor: pointer;
 }
 
+.lumos-toggle {
+    background: var(--gryffindor-crimson);
+    color: var(--gryffindor-gold);
+    border: 2px solid var(--gryffindor-gold);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.lumos-toggle:hover {
+    background: var(--gryffindor-gold);
+    color: var(--gryffindor-crimson);
+    box-shadow: 0 0 15px var(--gryffindor-gold);
+    transform: scale(1.05);
+}
+
 .bar {
     width: 25px;
     height: 3px;
@@ -341,12 +359,13 @@ body::before {
 }
 
 .skill-tag {
-    background: #2563eb;
-    color: white;
+    background: var(--gryffindor-crimson);
+    color: var(--gryffindor-gold);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
+    border: 1px solid var(--gryffindor-gold);
 }
 
 .about-stats {
@@ -366,7 +385,7 @@ body::before {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: var(--gryffindor-crimson);
     margin-bottom: 0.5rem;
 }
 
