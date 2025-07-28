@@ -9,21 +9,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="lumos-dark">
-    <!-- Magic Particles Background -->
-    <div class="magic-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-
+    <!-- Floating Candles Background -->
+    <div class="floating-candles">
+        <div class="candle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="candle" style="left: 20%; animation-delay: 1s;"></div>
+        <div class="candle" style="left: 30%; animation-delay: 2s;"></div>
+        <div class="candle" style="left: 40%; animation-delay: 0.5s;"></div>
+        <div class="candle" style="left: 50%; animation-delay: 1.5s;"></div>
+        <div class="candle" style="left: 60%; animation-delay: 2.5s;"></div>
+        <div class="candle" style="left: 70%; animation-delay: 0.8s;"></div>
+        <div class="candle" style="left: 80%; animation-delay: 1.8s;"></div>
+        <div class="candle" style="left: 90%; animation-delay: 2.8s;"></div>
+        <div class="candle" style="left: 15%; top: 30%; animation-delay: 1.2s;"></div>
+        <div class="candle" style="left: 25%; top: 40%; animation-delay: 0.3s;"></div>
+        <div class="candle" style="left: 35%; top: 35%; animation-delay: 2.1s;"></div>
+        <div class="candle" style="left: 45%; top: 45%; animation-delay: 1.7s;"></div>
+        <div class="candle" style="left: 55%; top: 30%; animation-delay: 0.9s;"></div>
+        <div class="candle" style="left: 65%; top: 40%; animation-delay: 2.3s;"></div>
+        <div class="candle" style="left: 75%; top: 35%; animation-delay: 1.4s;"></div>
+        <div class="candle" style="left: 85%; top: 45%; animation-delay: 0.6s;"></div>
     </div>
     <!-- Navigation -->
     <nav class="navbar lumos-navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <i class="fas fa-hat-wizard"></i>
-                <span>Lumos Portfolio</span>
+                <span>Hogwarts Data Wizard</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
@@ -32,7 +43,7 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li>
                     <button id="toggle-dark" class="lumos-toggle">
-                        <i class="fas fa-magic"></i> Lumos
+                        <i class="fas fa-magic"></i> Lumos Maxima
                     </button>
                 </li>
             </ul>
@@ -48,8 +59,8 @@
     <section id="home" class="hero lumos-hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Lumos <span class="highlight">Portfolio</span></h1>
-                <p class="hero-subtitle">Turning data into magic with interactive visualizations</p>
+                <h1 class="hero-title">Hogwarts <span class="highlight">Data Wizard</span></h1>
+                <p class="hero-subtitle">Transforming data into magical visualizations with the power of D3.js and modern web spells</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary lumos-btn">View Projects</a>
                     <a href="#about" class="btn btn-secondary lumos-btn">Learn More</a>
@@ -67,7 +78,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a data wizard with a passion for conjuring interactive and insightful visualizations using modern web magic. My spellbook includes D3.js, Vue.js, R Markdown, and more.</p>
+                    <p>I'm a graduate of Hogwarts School of Data Visualization, specializing in the ancient art of transforming raw data into enchanting interactive visualizations. My magical toolkit includes D3.js, Vue.js, DeckGL, and other powerful spells for data storytelling.</p>
                     <div class="skills">
                         <h3>Technologies & Skills</h3>
                         <div class="skill-tags">
@@ -95,7 +106,7 @@
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">Magical</div>
+                        <div class="stat-label">Magical Spells</div>
                     </div>
                 </div>
             </div>
@@ -105,11 +116,10 @@
     <!-- Projects Section -->
     <section id="projects" class="projects lumos-projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title">Magical Spells & Visualizations</h2>
             <div class="projects-grid">
 
-
-                <!-- Project 2: Skytrackers Flight Visualization -->
+                <!-- Project 1: Marauder's Map - Flight Tracking -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
@@ -117,7 +127,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Skytrackers Flight Visualization</h3>
+                        <h3 class="project-title">Marauder's Map - Flight Tracking</h3>
                         <p class="project-description">Interactive flight tracking visualization with real-time data, geographic mapping, and advanced D3.js techniques for aviation data analysis.</p>
                         <div class="project-tech">
                             <span class="tech-tag">D3.js</span>
@@ -134,7 +144,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Country Comparison Dashboard -->
+                <!-- Project 2: Divination Charts - Country Comparison -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
@@ -142,7 +152,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Country Comparison Dashboard</h3>
+                        <h3 class="project-title">Divination Charts - Country Comparison</h3>
                         <p class="project-description">Country comparison dashboard with interactive D3.js charts for United States vs India (2015-2021).</p>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
@@ -158,11 +168,7 @@
                     </div>
                 </div>
 
-
-
-
-
-                <!-- Project 6: DeckGL Maps -->
+                <!-- Project 3: Magical Maps - DeckGL Visualization -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
@@ -170,7 +176,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">DeckGL Maps</h3>
+                        <h3 class="project-title">Magical Maps - DeckGL Visualization</h3>
                         <p class="project-description">Comprehensive geographic visualization dashboard featuring 6 different map types including D3.js dot maps, choropleth maps, and DeckGL hexagon, scatterplot, and heatmap visualizations for air quality and emissions data.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue.js</span>
@@ -188,7 +194,7 @@
                     </div>
                 </div>
 
-                <!-- Project 7: Advanced Data Visualizations -->
+                <!-- Project 4: Arithmancy Charts - Advanced Visualizations -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
@@ -196,7 +202,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Advanced Data Visualizations</h3>
+                        <h3 class="project-title">Arithmancy Charts - Advanced Visualizations</h3>
                         <p class="project-description">Comprehensive dashboard featuring 6 advanced D3.js visualizations including circle packing, force-directed graphs, parallel coordinates, stacked bar charts, difference charts, and donut charts for world population and language data analysis.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue.js</span>
