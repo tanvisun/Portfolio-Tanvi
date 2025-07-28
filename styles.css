@@ -101,7 +101,7 @@ body::before {
 
 /* Floating Candles Animation */
 .floating-candles {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -112,12 +112,12 @@ body::before {
 
 .candle {
     position: absolute;
-    width: 30px;
-    height: 80px;
+    width: 15px;
+    height: 40px;
     background: linear-gradient(to bottom, #f4d03f, #f39c12);
-    border-radius: 15px 15px 0 0;
+    border-radius: 8px 8px 0 0;
     animation: float-candle 6s ease-in-out infinite;
-    box-shadow: 0 0 15px rgba(241, 196, 15, 0.6);
+    box-shadow: 0 0 8px rgba(241, 196, 15, 0.6);
 }
 
 .candle::before {
@@ -168,7 +168,7 @@ body::before {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%);
     color: white;
     position: relative;
     overflow: hidden;
