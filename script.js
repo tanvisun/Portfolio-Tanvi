@@ -27,16 +27,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll - Always midnight blue
+// Navbar background change on scroll - Respect lumos-dark theme
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    const body = document.body;
     
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(10, 10, 35, 0.98)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+    // Check if we're using the lumos-dark theme
+    if (body.classList.contains('lumos-dark')) {
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(10, 10, 35, 0.98)';
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+        } else {
+            navbar.style.background = 'rgba(10, 10, 35, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
     } else {
-        navbar.style.background = 'rgba(10, 10, 35, 0.95)';
-        navbar.style.boxShadow = 'none';
+        // Default light theme behavior
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
     }
 });
 
