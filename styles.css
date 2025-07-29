@@ -487,11 +487,11 @@ body.lumos-dark .nav-link {
 }
 
 .project-placeholder {
-    color: #ffd700;
+    color: #ffffff;
     font-size: 2.5rem;
     opacity: 1;
     animation: icon-pulse 2s ease-in-out infinite;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 @keyframes icon-pulse {
