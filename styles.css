@@ -1,7 +1,7 @@
 /* Gryffindor Color Palette */
 :root {
-    --midnight-blue: #191970;
-    --midnight-blue-light: rgba(25, 25, 112, 0.2);
+    --midnight-blue: #ffd700;
+    --midnight-blue-light: rgba(255, 215, 0, 0.2);
     --white: #ffffff;
     --charcoal: #2c2c2c;
 }
@@ -44,7 +44,7 @@ body {
 }
 
 .lumos-dark .nav-link:hover {
-    color: #4a9eff;
+    color: #ffd700;
 }
 
 .lumos-dark .bar {
@@ -187,7 +187,7 @@ body.lumos-dark .nav-link {
 }
 
 .nav-link:hover {
-    color: #4a9eff;
+    color: #ffd700;
 }
 
 .hamburger {
@@ -487,11 +487,11 @@ body.lumos-dark .nav-link {
 }
 
 .project-placeholder {
-    color: #191970;
+    color: #ffd700;
     font-size: 2.5rem;
     opacity: 1;
     animation: icon-pulse 2s ease-in-out infinite;
-    text-shadow: 0 0 10px rgba(25, 25, 112, 0.5);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 @keyframes icon-pulse {
@@ -601,7 +601,7 @@ body.lumos-dark .nav-link {
 }
 
 .contact-method i {
-    color: #2563eb;
+    color: #ffd700;
     font-size: 1.2rem;
     width: 20px;
 }
@@ -631,7 +631,7 @@ body.lumos-dark .nav-link {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #ffd700;
 }
 
 /* Footer */
