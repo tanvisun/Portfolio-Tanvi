@@ -314,88 +314,110 @@ console.log(`
 Feel free to explore the code and customize it for your projects!
 `); 
 
-// Magical Background Interactive Effects
+// Dynamic Background Interactive Effects
 document.addEventListener('DOMContentLoaded', () => {
-    const particles = document.querySelectorAll('.particle');
-    const orbs = document.querySelectorAll('.magical-orb');
+    const floatingElements = document.querySelectorAll('.floating-element');
+    const bgLayers = document.querySelectorAll('.bg-layer');
     const hero = document.querySelector('.hero');
     
-    // Mouse movement effect for particles
+    // Mouse movement effect for dynamic background
     document.addEventListener('mousemove', (e) => {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
         const centerX = window.innerWidth / 2;
         const centerY = window.innerHeight / 2;
         
-        particles.forEach((particle, index) => {
-            const speed = parseFloat(particle.dataset.speed) || 0.5;
-            const deltaX = (mouseX - centerX) * speed * 0.01;
-            const deltaY = (mouseY - centerY) * speed * 0.01;
-            
-            particle.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-        });
-        
-        // Orb movement effect
-        orbs.forEach((orb, index) => {
+        // Parallax effect for background layers
+        bgLayers.forEach((layer, index) => {
             const speed = (index + 1) * 0.02;
             const deltaX = (mouseX - centerX) * speed;
             const deltaY = (mouseY - centerY) * speed;
             
-            orb.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+            layer.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        });
+        
+        // Interactive floating elements
+        floatingElements.forEach((element, index) => {
+            const speed = parseFloat(element.dataset.speed) || 0.5;
+            const deltaX = (mouseX - centerX) * speed * 0.01;
+            const deltaY = (mouseY - centerY) * speed * 0.01;
+            
+            element.style.transform += ` translate(${deltaX}px, ${deltaY}px)`;
         });
     });
     
-    // Scroll parallax effect for magical background
+    // Scroll parallax effect for dynamic background
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.3;
+        const rate = scrolled * -0.2;
         
-        particles.forEach((particle, index) => {
-            const speed = parseFloat(particle.dataset.speed) || 0.5;
-            const parallaxRate = rate * speed;
-            particle.style.transform += ` translateY(${parallaxRate}px)`;
-        });
-        
-        orbs.forEach((orb, index) => {
+        bgLayers.forEach((layer, index) => {
             const speed = (index + 1) * 0.1;
             const parallaxRate = rate * speed;
-            orb.style.transform += ` translateY(${parallaxRate}px)`;
+            layer.style.transform += ` translateY(${parallaxRate}px)`;
+        });
+        
+        floatingElements.forEach((element, index) => {
+            const speed = parseFloat(element.dataset.speed) || 0.5;
+            const parallaxRate = rate * speed;
+            element.style.transform += ` translateY(${parallaxRate}px)`;
         });
     });
     
-    // Particle spawn effect on click
-    document.addEventListener('click', (e) => {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = e.clientX + 'px';
-        particle.style.top = e.clientY + 'px';
-        particle.style.position = 'fixed';
-        particle.style.zIndex = '1000';
-        particle.style.animation = 'spawn-particle 1s ease-out forwards';
+    // Add depth effect on hover
+    floatingElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            element.style.transform += ' scale(1.2)';
+            element.style.opacity = '1';
+        });
         
-        document.body.appendChild(particle);
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = element.style.transform.replace(' scale(1.2)', '');
+            element.style.opacity = '0.6';
+        });
+    });
+    
+    // Add click effect to create ripples
+    hero.addEventListener('click', (e) => {
+        const ripple = document.createElement('div');
+        ripple.className = 'background-ripple';
+        ripple.style.left = e.clientX + 'px';
+        ripple.style.top = e.clientY + 'px';
+        
+        hero.appendChild(ripple);
         
         setTimeout(() => {
-            document.body.removeChild(particle);
+            hero.removeChild(ripple);
         }, 1000);
     });
 });
 
-// Add spawn particle animation
-const style = document.createElement('style');
-style.textContent = `
-@keyframes spawn-particle {
+// Add ripple effect styles
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+.background-ripple {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: ripple-effect 1s ease-out forwards;
+    z-index: 10;
+}
+
+@keyframes ripple-effect {
     0% {
         transform: scale(0);
         opacity: 1;
     }
     100% {
-        transform: scale(2);
+        transform: scale(20);
         opacity: 0;
     }
 }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(rippleStyle);
 
 // Harry Potter Movie Introduction Control
 document.addEventListener('DOMContentLoaded', () => {

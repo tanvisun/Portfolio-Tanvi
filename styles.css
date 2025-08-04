@@ -998,3 +998,145 @@ body.lumos-dark .nav-link {
 .movie-intro.finished ~ .hero-container {
     opacity: 1;
 } 
+
+/* Dynamic Video-like Background */
+.dynamic-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bg-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: layer-move 20s linear infinite;
+}
+
+.layer-1 {
+    background: linear-gradient(135deg, 
+        rgba(10, 10, 35, 0.8) 0%, 
+        rgba(25, 25, 112, 0.6) 50%, 
+        rgba(10, 10, 35, 0.8) 100%);
+    animation-duration: 25s;
+    animation-direction: reverse;
+}
+
+.layer-2 {
+    background: linear-gradient(45deg, 
+        rgba(255, 215, 0, 0.1) 0%, 
+        transparent 50%, 
+        rgba(255, 215, 0, 0.1) 100%);
+    animation-duration: 15s;
+    animation-delay: -5s;
+}
+
+.layer-3 {
+    background: radial-gradient(circle at 30% 70%, 
+        rgba(255, 215, 0, 0.05) 0%, 
+        transparent 50%),
+        radial-gradient(circle at 70% 30%, 
+        rgba(255, 215, 0, 0.05) 0%, 
+        transparent 50%);
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-element {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, 
+        rgba(255, 215, 0, 0.2) 0%, 
+        rgba(255, 215, 0, 0.1) 50%, 
+        transparent 100%);
+    border-radius: 50%;
+    animation: float-element 15s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.floating-element:nth-child(odd) {
+    background: radial-gradient(circle, 
+        rgba(255, 237, 78, 0.2) 0%, 
+        rgba(255, 237, 78, 0.1) 50%, 
+        transparent 100%);
+    animation-duration: 20s;
+}
+
+.floating-element:nth-child(3n) {
+    background: radial-gradient(circle, 
+        rgba(255, 179, 71, 0.2) 0%, 
+        rgba(255, 179, 71, 0.1) 50%, 
+        transparent 100%);
+    animation-duration: 18s;
+    animation-delay: -5s;
+}
+
+.floating-element:nth-child(4n) {
+    background: radial-gradient(circle, 
+        rgba(255, 107, 53, 0.2) 0%, 
+        rgba(255, 107, 53, 0.1) 50%, 
+        transparent 100%);
+    animation-duration: 22s;
+    animation-delay: -8s;
+}
+
+/* Position floating elements */
+.floating-element:nth-child(1) { left: 10%; top: 20%; }
+.floating-element:nth-child(2) { left: 80%; top: 30%; }
+.floating-element:nth-child(3) { left: 20%; top: 70%; }
+.floating-element:nth-child(4) { left: 70%; top: 80%; }
+.floating-element:nth-child(5) { left: 40%; top: 10%; }
+.floating-element:nth-child(6) { left: 90%; top: 60%; }
+.floating-element:nth-child(7) { left: 30%; top: 90%; }
+.floating-element:nth-child(8) { left: 60%; top: 40%; }
+
+@keyframes layer-move {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(-10px) translateY(-5px);
+    }
+    50% {
+        transform: translateX(5px) translateY(-10px);
+    }
+    75% {
+        transform: translateX(-5px) translateY(5px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes float-element {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-30px) translateX(20px) scale(1.1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-50px) translateX(-10px) scale(0.9);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateY(-20px) translateX(30px) scale(1.05);
+        opacity: 0.9;
+    }
+} 
