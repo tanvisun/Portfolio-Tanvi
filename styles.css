@@ -1415,7 +1415,7 @@ body.lumos-dark .nav-link {
     height: auto;
     transform: translateX(-50%) translateY(-50%);
     object-fit: cover;
-    object-position: center;
+    object-position: center 30%; /* Crop from top to hide sample text */
     filter: brightness(0.7) contrast(1.2);
 }
 
@@ -1427,7 +1427,8 @@ body.lumos-dark .nav-link {
     height: 100%;
     background: linear-gradient(
         135deg,
-        rgba(10, 10, 35, 0.6) 0%,
+        rgba(10, 10, 35, 0.7) 0%,
+        rgba(25, 25, 112, 0.5) 30%,
         rgba(25, 25, 112, 0.4) 50%,
         rgba(10, 10, 35, 0.6) 100%
     );
@@ -1450,4 +1451,27 @@ body.lumos-dark .nav-link {
 
 .hogwarts-splash {
     z-index: 10001;
+} 
+
+/* Responsive video adjustments */
+@media (max-width: 768px) {
+    .video-background video {
+        object-position: center 25%; /* More aggressive cropping on mobile */
+    }
+    
+    .video-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(10, 10, 35, 0.8) 0%,
+            rgba(25, 25, 112, 0.6) 30%,
+            rgba(25, 25, 112, 0.5) 50%,
+            rgba(10, 10, 35, 0.7) 100%
+        );
+    }
+}
+
+@media (max-width: 480px) {
+    .video-background video {
+        object-position: center 20%; /* Even more cropping on small screens */
+    }
 } 
