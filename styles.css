@@ -17,15 +17,15 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #ffffff;
-    background: #0a0a23; /* Midnight blue background */
+    background: transparent;
     background-size: cover;
     position: relative;
     min-height: 100vh;
 }
 
-/* Lumos Theme - Midnight Blue Background */
+/* Lumos Theme - Transparent Background */
 .lumos-dark {
-    background: #0a0a23; /* Midnight blue background */
+    background: transparent;
     color: white;
 }
 
@@ -152,7 +152,7 @@ body.lumos-dark .nav-link {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: #0a0a23;
+    background: transparent;
     color: white;
     position: relative;
     overflow: hidden;
@@ -311,7 +311,7 @@ body.lumos-dark .nav-link {
 /* Sections */
 .about, .projects, .contact {
     padding: 5rem 0;
-    background: #0a0a23;
+    background: transparent;
 }
 
 .section-title {
@@ -579,7 +579,7 @@ body.lumos-dark .nav-link {
 
 /* Footer */
 .footer {
-    background: #0a0a23;
+    background: transparent;
     color: white;
     padding: 2rem 0;
 }
@@ -1425,13 +1425,7 @@ body.lumos-dark .nav-link {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(10, 10, 35, 0.7) 0%,
-        rgba(25, 25, 112, 0.5) 30%,
-        rgba(25, 25, 112, 0.4) 50%,
-        rgba(10, 10, 35, 0.6) 100%
-    );
+    background: transparent;
     z-index: 1;
 }
 
