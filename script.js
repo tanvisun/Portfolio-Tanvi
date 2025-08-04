@@ -396,3 +396,46 @@ style.textContent = `
 }
 `;
 document.head.appendChild(style); 
+
+// Harry Potter Movie Introduction Control
+document.addEventListener('DOMContentLoaded', () => {
+    const movieIntro = document.querySelector('.movie-intro');
+    const heroContainer = document.querySelector('.hero-container');
+    
+    // Start the movie intro
+    if (movieIntro) {
+        movieIntro.classList.add('active');
+        
+        // Hide main content during intro
+        if (heroContainer) {
+            heroContainer.style.opacity = '0';
+            heroContainer.style.transition = 'opacity 1s ease-in-out 8s';
+        }
+        
+        // Show main content after intro
+        setTimeout(() => {
+            if (heroContainer) {
+                heroContainer.style.opacity = '1';
+            }
+            movieIntro.style.display = 'none';
+        }, 8000);
+    }
+    
+    // Add skip intro functionality
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && movieIntro) {
+            movieIntro.style.display = 'none';
+            if (heroContainer) {
+                heroContainer.style.opacity = '1';
+            }
+        }
+    });
+    
+    // Click to skip intro
+    movieIntro?.addEventListener('click', () => {
+        movieIntro.style.display = 'none';
+        if (heroContainer) {
+            heroContainer.style.opacity = '1';
+        }
+    });
+}); 
