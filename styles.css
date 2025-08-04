@@ -45,6 +45,7 @@ body {
 
 .lumos-dark .nav-link:hover {
     color: #c0c0c0;
+    text-shadow: 0 0 10px #c0c0c0, 0 0 20px #c0c0c0;
 }
 
 .lumos-dark .bar {
@@ -98,7 +99,7 @@ body.lumos-dark .nav-link {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -131,6 +132,7 @@ body.lumos-dark .nav-link {
 
 .nav-link:hover {
     color: #c0c0c0;
+    text-shadow: 0 0 10px #c0c0c0, 0 0 20px #c0c0c0;
 }
 
 .hamburger {
@@ -182,12 +184,13 @@ body.lumos-dark .nav-link {
 }
 
 .hero-title {
+    font-family: 'Cinzel', serif;
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
     color: #c0c0c0;
-    text-shadow: 0 0 15px #c0c0c0;
+    text-shadow: 0 0 20px #c0c0c0, 0 0 40px #c0c0c0, 0 0 60px #c0c0c0;
     animation: title-glow 4s ease-in-out infinite;
 }
 
@@ -315,11 +318,13 @@ body.lumos-dark .nav-link {
 }
 
 .section-title {
+    font-family: 'Cinzel', serif;
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 3rem;
-    color: #ffffff;
+    color: #c0c0c0;
+    text-shadow: 0 0 15px #c0c0c0, 0 0 30px #c0c0c0;
 }
 
 /* About Section */
@@ -1415,7 +1420,7 @@ body.lumos-dark .nav-link {
     height: auto;
     transform: translateX(-50%) translateY(-50%);
     object-fit: cover;
-    object-position: center 40%; /* Much more aggressive cropping to hide sample text */
+    object-position: center 70%; /* Much more aggressive cropping from bottom to hide sample text */
     filter: brightness(0.7) contrast(1.2);
 }
 
@@ -1459,6 +1464,7 @@ body.lumos-dark .nav-link {
 }
 
 .hero-bottom-buttons .btn {
+    font-family: 'Cinzel', serif;
     padding: 15px 30px;
     font-size: 1.1rem;
     border: 2px solid #c0c0c0;
@@ -1468,6 +1474,8 @@ body.lumos-dark .nav-link {
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
+    text-shadow: 0 0 10px #c0c0c0;
+    box-shadow: 0 0 15px rgba(192, 192, 192, 0.3);
 }
 
 .hero-bottom-buttons .btn:hover {
@@ -1480,7 +1488,7 @@ body.lumos-dark .nav-link {
 /* Responsive video adjustments */
 @media (max-width: 768px) {
     .video-background video {
-        object-position: center 50%; /* Much more aggressive cropping on mobile */
+        object-position: center 80%; /* Much more aggressive cropping on mobile */
     }
     
     .hero-bottom-buttons {
@@ -1498,7 +1506,7 @@ body.lumos-dark .nav-link {
 
 @media (max-width: 480px) {
     .video-background video {
-        object-position: center 60%; /* Much more aggressive cropping on small screens */
+        object-position: center 90%; /* Much more aggressive cropping on small screens */
     }
     
     .hero-bottom-buttons {
