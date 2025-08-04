@@ -1140,3 +1140,314 @@ body.lumos-dark .nav-link {
         opacity: 0.9;
     }
 } 
+
+/* Hogwarts Splash Screen */
+.hogwarts-splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #0a0a23 0%, 
+        #1a1a3a 25%, 
+        #2a2a5a 50%, 
+        #1a1a3a 75%, 
+        #0a0a23 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: splash-fade-out 4s ease-in-out 3s forwards;
+}
+
+.splash-content {
+    text-align: center;
+    color: #ffd700;
+}
+
+.hogwarts-logo {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto 2rem;
+}
+
+.castle-silhouette {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        transparent 20%,
+        #ffd700 20%,
+        #ffd700 25%,
+        transparent 25%,
+        transparent 40%,
+        #ffd700 40%,
+        #ffd700 45%,
+        transparent 45%,
+        transparent 60%,
+        #ffd700 60%,
+        #ffd700 65%,
+        transparent 65%,
+        transparent 80%,
+        #ffd700 80%,
+        #ffd700 85%,
+        transparent 85%,
+        transparent 100%);
+    background-size: 20% 100%;
+    background-repeat: repeat-x;
+    animation: castle-glow 2s ease-in-out infinite;
+}
+
+.magical-sparkles-splash {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sparkle-splash {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffd700;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ffd700;
+    animation: sparkle-splash 3s ease-in-out infinite;
+}
+
+.sparkle-splash:nth-child(odd) {
+    background: #ffed4e;
+    box-shadow: 0 0 8px #ffed4e;
+    animation-delay: 0.5s;
+}
+
+.sparkle-splash:nth-child(3n) {
+    background: #ffb347;
+    box-shadow: 0 0 8px #ffb347;
+    animation-delay: 1s;
+}
+
+.hogwarts-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 20px #ffd700;
+    margin-bottom: 1rem;
+    animation: title-appear 2s ease-in-out 1s both;
+}
+
+.hogwarts-subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2rem;
+    color: #ffed4e;
+    text-shadow: 0 0 10px #ffed4e;
+    animation: subtitle-appear 2s ease-in-out 1.5s both;
+}
+
+.splash-loading {
+    margin-top: 3rem;
+    animation: loading-appear 2s ease-in-out 2s both;
+}
+
+.loading-bar {
+    width: 300px;
+    height: 4px;
+    background: rgba(255, 215, 0, 0.2);
+    border-radius: 2px;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+}
+
+.loading-progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+    border-radius: 2px;
+    animation: loading-progress 3s ease-in-out 2s forwards;
+}
+
+.loading-text {
+    font-family: 'Crimson Text', serif;
+    color: #ffed4e;
+    font-size: 1rem;
+    animation: text-pulse 2s ease-in-out infinite;
+}
+
+@keyframes splash-fade-out {
+    0%, 70% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes castle-glow {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.3);
+    }
+}
+
+@keyframes sparkle-splash {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes title-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtitle-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loading-appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes loading-progress {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes text-pulse {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Enhanced Navigation with Hogwarts Theme */
+.navbar {
+    background: linear-gradient(135deg, 
+        rgba(10, 10, 35, 0.95) 0%, 
+        rgba(25, 25, 112, 0.9) 100%) !important;
+    border-bottom: 2px solid #ffd700;
+}
+
+.nav-logo {
+    font-family: 'Cinzel', serif;
+}
+
+.nav-logo i {
+    color: #ffd700 !important;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+.nav-link:hover {
+    color: #ffd700 !important;
+    text-shadow: 0 0 5px #ffd700;
+}
+
+/* Enhanced Hero Section */
+.hero-title {
+    font-family: 'Cinzel', serif;
+    text-shadow: 
+        0 0 20px #ffd700,
+        0 0 40px #ffd700,
+        0 0 60px #ffd700;
+}
+
+.highlight {
+    background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+} 
+
+/* Video Background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.7) contrast(1.2);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 10, 35, 0.6) 0%,
+        rgba(25, 25, 112, 0.4) 50%,
+        rgba(10, 10, 35, 0.6) 100%
+    );
+    z-index: 1;
+}
+
+/* Ensure content is above video */
+.hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+.dynamic-background {
+    z-index: 2;
+}
+
+.movie-intro {
+    z-index: 10000;
+}
+
+.hogwarts-splash {
+    z-index: 10001;
+} 

@@ -455,3 +455,124 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 }); 
+
+// Hogwarts Splash Screen Control
+document.addEventListener('DOMContentLoaded', () => {
+    const hogwartsSplash = document.querySelector('.hogwarts-splash');
+    const movieIntro = document.querySelector('.movie-intro');
+    const heroContainer = document.querySelector('.hero-container');
+    
+    // Control splash screen timing
+    if (hogwartsSplash) {
+        // Hide splash after 4 seconds
+        setTimeout(() => {
+            hogwartsSplash.style.display = 'none';
+            
+            // Start movie intro after splash
+            if (movieIntro && heroContainer) {
+                heroContainer.style.opacity = '0';
+                
+                setTimeout(() => {
+                    heroContainer.style.opacity = '1';
+                    movieIntro.classList.add('finished');
+                    setTimeout(() => {
+                        movieIntro.style.display = 'none';
+                    }, 1000);
+                }, 8000);
+            }
+        }, 4000);
+    }
+    
+    // Add skip functionality for splash
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && hogwartsSplash) {
+            hogwartsSplash.style.display = 'none';
+            if (heroContainer) {
+                heroContainer.style.opacity = '1';
+            }
+        }
+    });
+    
+    // Click to skip splash
+    hogwartsSplash?.addEventListener('click', () => {
+        hogwartsSplash.style.display = 'none';
+        if (heroContainer) {
+            heroContainer.style.opacity = '1';
+        }
+    });
+});
+
+// Enhanced magical effects
+document.addEventListener('DOMContentLoaded', () => {
+    // Add magical sound effects (optional)
+    const addMagicalSounds = () => {
+        // This would add subtle sound effects for interactions
+        // For now, we'll just enhance the visual effects
+    };
+    
+    // Enhanced hover effects for project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = '0 15px 35px rgba(255, 215, 0, 0.3)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 4px 15px rgba(255, 215, 0, 0.2)';
+        });
+    });
+    
+    // Add magical typing effect to hero title
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        // Start typing after splash and movie intro
+        setTimeout(typeWriter, 12000);
+    }
+}); 
+
+// Video Background Control
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.querySelector('.video-background video');
+    
+    if (video) {
+        // Ensure video loads properly
+        video.addEventListener('loadeddata', () => {
+            console.log('Video loaded successfully');
+        });
+        
+        // Handle video errors
+        video.addEventListener('error', () => {
+            console.log('Video failed to load, falling back to dynamic background');
+            document.querySelector('.dynamic-background').style.display = 'block';
+        });
+        
+        // Pause video when page is not visible (for performance)
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                video.pause();
+            } else {
+                video.play();
+            }
+        });
+        
+        // Ensure video plays on mobile
+        video.addEventListener('canplay', () => {
+            video.play().catch(e => {
+                console.log('Auto-play prevented, user interaction required');
+            });
+        });
+    }
+}); 
