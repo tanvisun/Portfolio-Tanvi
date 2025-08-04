@@ -1,7 +1,7 @@
 /* Gryffindor Color Palette */
 :root {
-    --midnight-blue: #ffd700;
-    --midnight-blue-light: rgba(255, 215, 0, 0.2);
+    --midnight-blue: #c0c0c0;
+    --midnight-blue-light: rgba(192, 192, 192, 0.2);
     --white: #ffffff;
     --charcoal: #2c2c2c;
 }
@@ -44,7 +44,7 @@ body {
 }
 
 .lumos-dark .nav-link:hover {
-    color: #ffd700;
+    color: #c0c0c0;
 }
 
 .lumos-dark .bar {
@@ -130,7 +130,7 @@ body.lumos-dark .nav-link {
 }
 
 .nav-link:hover {
-    color: #ffd700;
+    color: #c0c0c0;
 }
 
 .hamburger {
@@ -186,14 +186,14 @@ body.lumos-dark .nav-link {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: #ffd700;
-    text-shadow: 0 0 15px #ffd700;
+    color: #c0c0c0;
+    text-shadow: 0 0 15px #c0c0c0;
     animation: title-glow 4s ease-in-out infinite;
 }
 
 .highlight {
-    color: #ffd700;
-    text-shadow: 0 0 15px #ffd700;
+    color: #c0c0c0;
+    text-shadow: 0 0 15px #c0c0c0;
 }
 
 .hero-subtitle {
@@ -221,15 +221,15 @@ body.lumos-dark .nav-link {
 }
 
 .subtitle-part-1 {
-    color: #ffd700;
-    text-shadow: 0 0 10px #ffd700;
+    color: #c0c0c0;
+    text-shadow: 0 0 10px #c0c0c0;
     animation: glow-text 2s ease-in-out infinite;
     opacity: 1;
 }
 
 .subtitle-part-2 {
-    color: #ffd700;
-    text-shadow: 0 0 10px #ffd700;
+    color: #c0c0c0;
+    text-shadow: 0 0 10px #c0c0c0;
     animation: fade-in-text 3s ease-in-out infinite;
     opacity: 0;
     animation-delay: 1s;
@@ -237,10 +237,10 @@ body.lumos-dark .nav-link {
 
 @keyframes glow-text {
     0%, 100% {
-        text-shadow: 0 0 10px #ffd700;
+        text-shadow: 0 0 10px #c0c0c0;
     }
     50% {
-        text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700;
+        text-shadow: 0 0 20px #c0c0c0, 0 0 30px #c0c0c0;
     }
 }
 
@@ -257,11 +257,11 @@ body.lumos-dark .nav-link {
 
 @keyframes title-glow {
     0%, 100% { 
-        text-shadow: 0 0 15px #ffd700;
+        text-shadow: 0 0 15px #c0c0c0;
         opacity: 1;
     }
     50% { 
-        text-shadow: 0 0 25px #ffd700, 0 0 35px #ffd700;
+        text-shadow: 0 0 25px #c0c0c0, 0 0 35px #c0c0c0;
         opacity: 1;
     }
 }
@@ -1415,7 +1415,7 @@ body.lumos-dark .nav-link {
     height: auto;
     transform: translateX(-50%) translateY(-50%);
     object-fit: cover;
-    object-position: center 30%; /* Crop from top to hide sample text */
+    object-position: center 20%; /* Crop more from top and bottom to hide sample text */
     filter: brightness(0.7) contrast(1.2);
 }
 
@@ -1447,25 +1447,86 @@ body.lumos-dark .nav-link {
     z-index: 10001;
 } 
 
+/* Hero Bottom Buttons */
+.hero-bottom-buttons {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    z-index: 10;
+}
+
+.hero-bottom-buttons .btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border: 2px solid #c0c0c0;
+    background: transparent;
+    color: #c0c0c0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.hero-bottom-buttons .btn:hover {
+    background: #c0c0c0;
+    color: #0a0a23;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(192, 192, 192, 0.3);
+}
+
 /* Responsive video adjustments */
 @media (max-width: 768px) {
     .video-background video {
-        object-position: center 25%; /* More aggressive cropping on mobile */
+        object-position: center 15%; /* More aggressive cropping on mobile */
     }
     
-    .video-overlay {
-        background: linear-gradient(
-            135deg,
-            rgba(10, 10, 35, 0.8) 0%,
-            rgba(25, 25, 112, 0.6) 30%,
-            rgba(25, 25, 112, 0.5) 50%,
-            rgba(10, 10, 35, 0.7) 100%
-        );
+    .hero-bottom-buttons {
+        bottom: 30px;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-bottom-buttons .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .video-background video {
-        object-position: center 20%; /* Even more cropping on small screens */
+        object-position: center 10%; /* Even more cropping on small screens */
     }
+    
+    .hero-bottom-buttons {
+        bottom: 20px;
+    }
+} 
+
+/* Music Control Button */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(192, 192, 192, 0.2);
+    border: 2px solid #c0c0c0;
+    border-radius: 50%;
+    color: #c0c0c0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.music-control:hover {
+    background: rgba(192, 192, 192, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(192, 192, 192, 0.5);
 } 

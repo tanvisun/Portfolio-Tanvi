@@ -576,3 +576,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 }); 
+
+// Harry Potter Theme Music Control
+document.addEventListener('DOMContentLoaded', () => {
+    const hpTheme = document.getElementById('hp-theme');
+    let musicStarted = false;
+    
+    // Start music on first user interaction
+    const startMusic = () => {
+        if (!musicStarted && hpTheme) {
+            hpTheme.volume = 0.3; // Set volume to 30%
+            hpTheme.play().then(() => {
+                musicStarted = true;
+                console.log('Harry Potter theme music started');
+            }).catch(e => {
+                console.log('Music autoplay prevented, user interaction required');
+            });
+        }
+    };
+    
+    // Start music on any user interaction
+    document.addEventListener('click', startMusic, { once: true });
+    document.addEventListener('keydown', startMusic, { once: true });
+    document.addEventListener('scroll', startMusic, { once: true });
+    
+    // Add music control button
+    const musicControl = document.createElement('button');
+    musicControl.innerHTML = '<i class="fas fa-music"></i>';
+    musicControl.className = 'music-control';
+    musicControl.title = 'Toggle Music';
+    document.body.appendChild(musicControl);
+    
+    musicControl.addEventListener('click', () => {
+        if (hpTheme.paused) {
+            hpTheme.play();
+            musicControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        } else {
+            hpTheme.pause();
+            musicControl.innerHTML = '<i class="fas fa-music"></i>';
+        }
+    });
+}); 
