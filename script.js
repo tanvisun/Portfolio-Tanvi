@@ -313,3 +313,86 @@ console.log(`
 
 Feel free to explore the code and customize it for your projects!
 `); 
+
+// Magical Background Interactive Effects
+document.addEventListener('DOMContentLoaded', () => {
+    const particles = document.querySelectorAll('.particle');
+    const orbs = document.querySelectorAll('.magical-orb');
+    const hero = document.querySelector('.hero');
+    
+    // Mouse movement effect for particles
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        
+        particles.forEach((particle, index) => {
+            const speed = parseFloat(particle.dataset.speed) || 0.5;
+            const deltaX = (mouseX - centerX) * speed * 0.01;
+            const deltaY = (mouseY - centerY) * speed * 0.01;
+            
+            particle.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        });
+        
+        // Orb movement effect
+        orbs.forEach((orb, index) => {
+            const speed = (index + 1) * 0.02;
+            const deltaX = (mouseX - centerX) * speed;
+            const deltaY = (mouseY - centerY) * speed;
+            
+            orb.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        });
+    });
+    
+    // Scroll parallax effect for magical background
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.3;
+        
+        particles.forEach((particle, index) => {
+            const speed = parseFloat(particle.dataset.speed) || 0.5;
+            const parallaxRate = rate * speed;
+            particle.style.transform += ` translateY(${parallaxRate}px)`;
+        });
+        
+        orbs.forEach((orb, index) => {
+            const speed = (index + 1) * 0.1;
+            const parallaxRate = rate * speed;
+            orb.style.transform += ` translateY(${parallaxRate}px)`;
+        });
+    });
+    
+    // Particle spawn effect on click
+    document.addEventListener('click', (e) => {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = e.clientX + 'px';
+        particle.style.top = e.clientY + 'px';
+        particle.style.position = 'fixed';
+        particle.style.zIndex = '1000';
+        particle.style.animation = 'spawn-particle 1s ease-out forwards';
+        
+        document.body.appendChild(particle);
+        
+        setTimeout(() => {
+            document.body.removeChild(particle);
+        }, 1000);
+    });
+});
+
+// Add spawn particle animation
+const style = document.createElement('style');
+style.textContent = `
+@keyframes spawn-particle {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+`;
+document.head.appendChild(style); 
