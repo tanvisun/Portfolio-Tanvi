@@ -577,6 +577,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 }); 
 
+// Custom Harry Potter Intro Control
+document.addEventListener('DOMContentLoaded', () => {
+    const harryPotterIntro = document.querySelector('.harry-potter-intro');
+    if (harryPotterIntro) {
+        // Hide intro after 5 seconds
+        setTimeout(() => {
+            harryPotterIntro.style.opacity = '0';
+            harryPotterIntro.style.transition = 'opacity 2s ease-out';
+            setTimeout(() => {
+                harryPotterIntro.style.display = 'none';
+            }, 2000);
+        }, 5000);
+    }
+});
+
 // Harry Potter Theme Music Control
 document.addEventListener('DOMContentLoaded', () => {
     const hpTheme = document.getElementById('hp-theme');
