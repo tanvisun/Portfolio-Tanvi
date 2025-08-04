@@ -403,38 +403,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroContainer = document.querySelector('.hero-container');
     
     // Start the movie intro
-    if (movieIntro) {
-        movieIntro.classList.add('active');
+    if (movieIntro && heroContainer) {
+        // Hide main content initially
+        heroContainer.style.opacity = '0';
         
-        // Hide main content during intro
-        if (heroContainer) {
-            heroContainer.style.opacity = '0';
-            heroContainer.style.transition = 'opacity 1s ease-in-out 8s';
-        }
-        
-        // Show main content after intro
+        // Show main content after intro completes
         setTimeout(() => {
-            if (heroContainer) {
-                heroContainer.style.opacity = '1';
-            }
-            movieIntro.style.display = 'none';
+            heroContainer.style.opacity = '1';
+            movieIntro.classList.add('finished');
+            setTimeout(() => {
+                movieIntro.style.display = 'none';
+            }, 1000);
         }, 8000);
     }
     
     // Add skip intro functionality
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && movieIntro) {
+        if (e.key === 'Escape' && movieIntro && heroContainer) {
             movieIntro.style.display = 'none';
-            if (heroContainer) {
-                heroContainer.style.opacity = '1';
-            }
+            heroContainer.style.opacity = '1';
         }
     });
     
     // Click to skip intro
     movieIntro?.addEventListener('click', () => {
-        movieIntro.style.display = 'none';
-        if (heroContainer) {
+        if (movieIntro && heroContainer) {
+            movieIntro.style.display = 'none';
             heroContainer.style.opacity = '1';
         }
     });
