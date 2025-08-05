@@ -38,7 +38,7 @@ body {
 }
 
 .lumos-dark .navbar {
-    background: rgba(10, 10, 35, 0.95) !important;
+    background: rgba(0, 0, 0, 0.95) !important;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
@@ -60,9 +60,9 @@ body {
     background: #ffffff !important;
 }
 
-/* Force midnight blue theme for navbar */
+/* Force black theme for navbar */
 body.lumos-dark .navbar {
-    background: rgba(10, 10, 35, 0.95) !important;
+    background: rgba(0, 0, 0, 0.95) !important;
 }
 
 body.lumos-dark .nav-logo,
@@ -93,7 +93,7 @@ body.lumos-dark .nav-link {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(10, 10, 35, 0.95);
+    background: rgba(0, 0, 0, 0.95);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 100;
@@ -291,24 +291,24 @@ body.lumos-dark .nav-link {
 
 .btn-primary {
     background: transparent;
-    color: white;
-    border: 2px solid white;
+    color: #c0c0c0;
+    border: 2px solid #c0c0c0;
 }
 
 .btn-primary:hover {
-    background: white;
+    background: #c0c0c0;
     color: #0a0a23;
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background: transparent;
-    color: white;
-    border: 2px solid white;
+    color: #c0c0c0;
+    border: 2px solid #c0c0c0;
 }
 
 .btn-secondary:hover {
-    background: white;
+    background: #c0c0c0;
     color: #0a0a23;
 }
 
@@ -346,13 +346,13 @@ body.lumos-dark .nav-link {
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: #ffffff;
+    color: #c0c0c0;
 }
 
 .skills h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #ffffff;
+    color: #c0c0c0;
 }
 
 .skill-tags {
@@ -363,12 +363,12 @@ body.lumos-dark .nav-link {
 
 .skill-tag {
     background: transparent;
-    color: #ffffff;
+    color: #c0c0c0;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
-    border: 1px solid #ffffff;
+    border: 1px solid #c0c0c0;
 }
 
 .about-stats {
@@ -389,13 +389,13 @@ body.lumos-dark .nav-link {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #c0c0c0;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
     font-size: 1rem;
-    color: #ffffff;
+    color: #c0c0c0;
     font-weight: 500;
 }
 
@@ -470,11 +470,11 @@ body.lumos-dark .nav-link {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #ffffff;
+    color: #c0c0c0;
 }
 
 .project-description {
-    color: #d1d5db;
+    color: #c0c0c0;
     margin-bottom: 1rem;
     line-height: 1.6;
 }
@@ -535,11 +535,11 @@ body.lumos-dark .nav-link {
 .contact-info h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #ffffff;
+    color: #c0c0c0;
 }
 
 .contact-info p {
-    color: #ffffff;
+    color: #c0c0c0;
     margin-bottom: 2rem;
 }
 
@@ -553,11 +553,11 @@ body.lumos-dark .nav-link {
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: #ffffff;
+    color: #c0c0c0;
 }
 
 .contact-method i {
-    color: #ffd700;
+    color: #c0c0c0;
     font-size: 1.2rem;
     width: 20px;
 }

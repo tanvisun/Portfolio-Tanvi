@@ -35,10 +35,10 @@ window.addEventListener('scroll', () => {
     // Check if we're using the lumos-dark theme
     if (body.classList.contains('lumos-dark')) {
         if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(10, 10, 35, 0.98)';
+            navbar.style.background = 'rgba(0, 0, 0, 0.98)';
             navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
         } else {
-            navbar.style.background = 'rgba(10, 10, 35, 0.95)';
+            navbar.style.background = 'rgba(0, 0, 0, 0.95)';
             navbar.style.boxShadow = 'none';
         }
     } else {
@@ -577,20 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 }); 
 
-// Custom Harry Potter Intro Control
-document.addEventListener('DOMContentLoaded', () => {
-    const harryPotterIntro = document.querySelector('.harry-potter-intro');
-    if (harryPotterIntro) {
-        // Hide intro after 5 seconds
-        setTimeout(() => {
-            harryPotterIntro.style.opacity = '0';
-            harryPotterIntro.style.transition = 'opacity 2s ease-out';
-            setTimeout(() => {
-                harryPotterIntro.style.display = 'none';
-            }, 2000);
-        }, 5000);
-    }
-});
+
 
 // Harry Potter Theme Music Control
 document.addEventListener('DOMContentLoaded', () => {
