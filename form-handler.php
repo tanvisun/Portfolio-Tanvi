@@ -2,10 +2,17 @@
 // Form Handler for Portfolio Contact Form
 // This script saves form submissions to an Excel file
 
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Set headers to prevent caching
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
 
 // Only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -41,14 +48,6 @@ $message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
 // Create timestamp
 $timestamp = date('Y-m-d H:i:s');
 
-// Prepare CSV data (Excel can open CSV files)
-$csvData = [
-    'Timestamp' => $timestamp,
-    'Name' => $name,
-    'Email' => $email,
-    'Message' => $message
-];
-
 // Define the Excel file path (adjust this path to your Mac's location)
 $excelFile = '/Users/tanvisawant/Desktop/portfolio_contacts.csv';
 
@@ -63,19 +62,28 @@ if (!file_exists($excelFile)) {
 $csvContent .= "\"$timestamp\",\"$name\",\"$email\",\"$message\"\n";
 
 // Write to file
-if (file_put_contents($excelFile, $csvContent, FILE_APPEND | LOCK_EX) !== false) {
-    // Send success response
-    echo json_encode([
-        'success' => true, 
-        'message' => 'Thank you! Your message has been saved to Excel file.',
-        'file_path' => $excelFile
-    ]);
-} else {
-    // Send error response
+try {
+    if (file_put_contents($excelFile, $csvContent, FILE_APPEND | LOCK_EX) !== false) {
+        // Send success response
+        echo json_encode([
+            'success' => true, 
+            'message' => 'Thank you! Your message has been saved to Excel file.',
+            'file_path' => $excelFile
+        ]);
+    } else {
+        // Send error response
+        http_response_code(500);
+        echo json_encode([
+            'success' => false, 
+            'message' => 'Failed to save message. Please try again.',
+            'file_path' => $excelFile
+        ]);
+    }
+} catch (Exception $e) {
     http_response_code(500);
     echo json_encode([
         'success' => false, 
-        'message' => 'Failed to save message. Please try again.',
+        'message' => 'Error: ' . $e->getMessage(),
         'file_path' => $excelFile
     ]);
 }

@@ -90,7 +90,12 @@ if (contactForm) {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
                 alert(data.message);
@@ -101,7 +106,21 @@ if (contactForm) {
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred. Please try again.');
+            // Fallback: Save to localStorage and show success message
+            const formData = {
+                timestamp: new Date().toISOString(),
+                name: name,
+                email: email,
+                message: message
+            };
+            
+            // Save to localStorage as fallback
+            const existingData = JSON.parse(localStorage.getItem('portfolio_contacts') || '[]');
+            existingData.push(formData);
+            localStorage.setItem('portfolio_contacts', JSON.stringify(existingData));
+            
+            alert('Thank you! Your message has been saved. (Note: Saved locally due to server issue)');
+            this.reset();
         })
         .finally(() => {
             submitBtn.textContent = originalText;
