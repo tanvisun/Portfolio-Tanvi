@@ -98,7 +98,8 @@ if (contactForm) {
         existingData.push(contactData);
         localStorage.setItem('portfolio_contacts', JSON.stringify(existingData));
         
-        alert('Thank you! Your message has been sent to my email and saved locally.');
+        console.log('Form submitted:', contactData);
+        alert('Thank you! Your message has been sent to tanvisawant35131@gmail.com and saved locally. Check your spam folder if you don\'t see the email.');
         this.reset();
         
         submitBtn.textContent = originalText;
