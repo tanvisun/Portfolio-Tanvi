@@ -85,14 +85,7 @@ if (contactForm) {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
-        // Send form data via email
-        const emailSubject = 'Portfolio Contact Form Submission';
-        const emailBody = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}%0A%0ATimestamp: ${new Date().toLocaleString()}`;
-        const mailtoLink = `mailto:tanvisun@usc.edu?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
-        
-        // Open email client
-        window.open(mailtoLink);
-        
+        // Formspree will handle the email sending automatically
         // Also save to localStorage as backup
         const contactData = {
             timestamp: new Date().toISOString(),
@@ -105,7 +98,7 @@ if (contactForm) {
         existingData.push(contactData);
         localStorage.setItem('portfolio_contacts', JSON.stringify(existingData));
         
-        alert('Thank you! Your message has been sent to your email and saved locally.');
+        alert('Thank you! Your message has been sent to my email and saved locally.');
         this.reset();
         
         submitBtn.textContent = originalText;
