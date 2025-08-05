@@ -53,17 +53,17 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Form submission handling
-const contactForm = document.querySelector('.contact-form form');
+// Form submission handling with Excel integration
+const contactForm = document.querySelector('#contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         // Get form data
         const formData = new FormData(this);
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
+        const name = this.querySelector('input[name="name"]').value;
+        const email = this.querySelector('input[name="email"]').value;
+        const message = this.querySelector('textarea[name="message"]').value;
         
         // Simple validation
         if (!name || !email || !message) {
@@ -78,20 +78,35 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission (replace with actual form handling)
+        // Update button state
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
-        // Simulate API call
-        setTimeout(() => {
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            this.reset();
+        // Send form data to PHP handler
+        fetch('form-handler.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                this.reset();
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        })
+        .finally(() => {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        }, 2000);
+        });
     });
 }
 
