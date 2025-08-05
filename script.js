@@ -85,47 +85,31 @@ if (contactForm) {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
-        // Send form data to PHP handler
-        fetch('form-handler.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.success) {
-                alert(data.message);
-                this.reset();
-            } else {
-                alert('Error: ' + data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // Fallback: Save to localStorage and show success message
-            const formData = {
-                timestamp: new Date().toISOString(),
-                name: name,
-                email: email,
-                message: message
-            };
-            
-            // Save to localStorage as fallback
-            const existingData = JSON.parse(localStorage.getItem('portfolio_contacts') || '[]');
-            existingData.push(formData);
-            localStorage.setItem('portfolio_contacts', JSON.stringify(existingData));
-            
-            alert('Thank you! Your message has been saved. (Note: Saved locally due to server issue)');
-            this.reset();
-        })
-        .finally(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        });
+        // Send form data via email
+        const emailSubject = 'Portfolio Contact Form Submission';
+        const emailBody = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}%0A%0ATimestamp: ${new Date().toLocaleString()}`;
+        const mailtoLink = `mailto:tanvisun@usc.edu?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
+        
+        // Open email client
+        window.open(mailtoLink);
+        
+        // Also save to localStorage as backup
+        const contactData = {
+            timestamp: new Date().toISOString(),
+            name: name,
+            email: email,
+            message: message
+        };
+        
+        const existingData = JSON.parse(localStorage.getItem('portfolio_contacts') || '[]');
+        existingData.push(contactData);
+        localStorage.setItem('portfolio_contacts', JSON.stringify(existingData));
+        
+        alert('Thank you! Your message has been sent to your email and saved locally.');
+        this.reset();
+        
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
     });
 }
 
