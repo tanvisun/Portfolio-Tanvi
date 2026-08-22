@@ -450,30 +450,85 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!prophetCard) return;
 
     const crumpleAnim = document.getElementById('crumpleAnim');
+    const owl = document.getElementById('owlCourier');
+    const seal = document.getElementById('prophetSeal');
+    const sigPath = document.getElementById('sigPath');
+
+    // Prep the quill signature for a stroke-draw reveal
+    if (sigPath) {
+        const len = sigPath.getTotalLength();
+        sigPath.style.strokeDasharray = len;
+        sigPath.style.strokeDashoffset = len;
+        sigPath.style.transition = 'stroke-dashoffset 1.1s ease';
+    }
+
+    let entranceStarted = false;
 
     const inkObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Unfurl: crumpled ball of paper straightens out into the flat newspaper
-                prophetCard.classList.add('unfolding');
-                requestAnimationFrame(() => {
-                    prophetCard.classList.remove('crumpled');
-                });
-                if (crumpleAnim && typeof crumpleAnim.beginElement === 'function') {
-                    crumpleAnim.beginElement();
-                }
+            if (entry.isIntersecting && !entranceStarted) {
+                entranceStarted = true;
+                inkObserver.disconnect();
 
-                // Headline ink-reveals once the paper has settled flat
+                // 1. Owl courier swoops in carrying the paper
+                if (owl) owl.classList.add('flying');
+
+                // 2. Paper is "dropped" partway through the flight (still crumpled)
+                setTimeout(() => {
+                    prophetCard.classList.add('delivered');
+                }, 900);
+
+                // 3. Once the owl has cleared, the crumpled ball unfurls flat
+                setTimeout(() => {
+                    prophetCard.classList.add('unfolding');
+                    requestAnimationFrame(() => {
+                        prophetCard.classList.remove('crumpled');
+                    });
+                    if (crumpleAnim && typeof crumpleAnim.beginElement === 'function') {
+                        crumpleAnim.beginElement();
+                    }
+                }, 1500);
+
+                // 4. Headline ink-reveals once the paper has settled flat
                 setTimeout(() => {
                     prophetCard.classList.add('ink-revealed');
                     prophetCard.classList.remove('unfolding');
-                }, 1450);
+                }, 2950);
 
-                inkObserver.disconnect();
+                // 5. Wax seal thumps down
+                setTimeout(() => {
+                    if (seal) seal.classList.add('stamped');
+                }, 3050);
+
+                // 6. Quill signs off
+                setTimeout(() => {
+                    if (sigPath) sigPath.style.strokeDashoffset = '0';
+                }, 3700);
+
+                // 7. Cursor-tilt only kicks in once everything has settled
+                setTimeout(() => {
+                    prophetCard.dataset.entranceDone = 'true';
+                }, 4800);
             }
         });
     }, { threshold: 0.3 });
     inkObserver.observe(prophetCard);
+
+    // Cursor-follow tilt, like a holographic trading card
+    prophetCard.addEventListener('mousemove', (e) => {
+        if (prophetCard.dataset.entranceDone !== 'true') return;
+        const rect = prophetCard.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        const rotateY = px * 9;
+        const rotateX = -py * 9;
+        prophetCard.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotate(0deg) scale(1.045)`;
+    });
+    prophetCard.addEventListener('mouseleave', () => {
+        if (prophetCard.dataset.entranceDone === 'true') {
+            prophetCard.style.transform = '';
+        }
+    });
 
     const miniHeadlines = ['The Girl Who Codes', 'Breaking News', 'New Project Discovered', 'Engineer Spotted Shipping Code'];
     const miniEl = document.getElementById('prophetMiniHeadline');

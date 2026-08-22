@@ -1897,6 +1897,121 @@ body.lumos-dark .nav-link {
     transition: transform 1.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
 }
 
+/* Hidden until the owl drops it off */
+.prophet-card.pre-delivery {
+    opacity: 0;
+}
+
+.prophet-card.delivered {
+    opacity: 1;
+    transition: opacity 0.35s ease;
+}
+
+/* Lifted-corner illusion on hover, like the page is about to be turned */
+.prophet-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    background: linear-gradient(135deg, transparent 55%, rgba(0, 0, 0, 0.2) 55%);
+    transition: width 0.35s ease, height 0.35s ease;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.prophet-card:hover::after {
+    width: 30px;
+    height: 30px;
+}
+
+/* Owl courier delivering the paper */
+.owl-courier {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    color: #3b2712;
+    opacity: 0;
+    z-index: 60;
+    pointer-events: none;
+    transform: translate(-380px, -140px) scale(0.55) rotate(-10deg);
+}
+
+.owl-courier.flying {
+    animation: owl-flight 2.1s cubic-bezier(0.45, 0, 0.4, 1) forwards;
+}
+
+@keyframes owl-flight {
+    0% { transform: translate(-380px, -140px) scale(0.55) rotate(-10deg); opacity: 0; }
+    12% { opacity: 1; }
+    45% { transform: translate(-23px, -10px) scale(0.85) rotate(2deg); opacity: 1; }
+    58% { transform: translate(-23px, -10px) scale(0.85) rotate(2deg); opacity: 1; }
+    100% { transform: translate(340px, -170px) scale(0.5) rotate(14deg); opacity: 0; }
+}
+
+/* Ministry-style wax seal that thumps down once the headline reveals */
+.prophet-seal {
+    position: absolute;
+    top: -14px;
+    right: -10px;
+    width: 46px;
+    height: 46px;
+    padding: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #8a3420, #4a180d 80%);
+    border: 2px solid #2b0f08;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+    color: #e8dcbd;
+    transform: scale(0) rotate(-20deg);
+    opacity: 0;
+    transition: transform 0.55s cubic-bezier(0.34, 1.9, 0.64, 1), opacity 0.25s ease;
+    z-index: 6;
+}
+
+.prophet-seal svg {
+    width: 100%;
+    height: 100%;
+}
+
+.prophet-seal.stamped {
+    transform: scale(1) rotate(-10deg);
+    opacity: 1;
+}
+
+/* Quill signature, stroke-drawn in via JS-set dash-offset */
+.prophet-signature {
+    display: block;
+    width: 120px;
+    height: 24px;
+    margin: 0.65rem auto 0;
+    color: #1a0f06;
+    opacity: 0.85;
+}
+
+/* Living wizarding photograph: a very occasional, subtle shimmer */
+@keyframes photo-living {
+    0%, 92%, 100% { filter: grayscale(1) sepia(0.35) contrast(1.25) brightness(0.95); transform: scale(1); }
+    94% { filter: grayscale(0.85) sepia(0.3) contrast(1.3) brightness(1.1); transform: scale(1.015); }
+    96% { filter: grayscale(1) sepia(0.35) contrast(1.25) brightness(0.95); transform: scale(1); }
+}
+
+.prophet-photo {
+    animation: photo-living 13s ease-in-out infinite;
+}
+
+@keyframes photo-living-placeholder {
+    0%, 92%, 100% { filter: none; transform: scale(1); }
+    94% { filter: brightness(1.12); transform: scale(1.02); }
+    96% { filter: none; transform: scale(1); }
+}
+
+.prophet-photo-placeholder {
+    animation: photo-living-placeholder 13s ease-in-out infinite;
+}
+
 /* Barely-there paper grain flicker */
 .prophet-card::before {
     content: '';
