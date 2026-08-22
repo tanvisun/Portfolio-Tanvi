@@ -449,14 +449,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const prophetCard = document.getElementById('prophetCard');
     if (!prophetCard) return;
 
+    const crumpleAnim = document.getElementById('crumpleAnim');
+
     const inkObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                prophetCard.classList.add('ink-revealed');
+                // Unfurl: crumpled ball of paper straightens out into the flat newspaper
+                prophetCard.classList.add('unfolding');
+                requestAnimationFrame(() => {
+                    prophetCard.classList.remove('crumpled');
+                });
+                if (crumpleAnim && typeof crumpleAnim.beginElement === 'function') {
+                    crumpleAnim.beginElement();
+                }
+
+                // Headline ink-reveals once the paper has settled flat
+                setTimeout(() => {
+                    prophetCard.classList.add('ink-revealed');
+                    prophetCard.classList.remove('unfolding');
+                }, 1450);
+
                 inkObserver.disconnect();
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.3 });
     inkObserver.observe(prophetCard);
 
     const miniHeadlines = ['The Girl Who Codes', 'Breaking News', 'New Project Discovered', 'Engineer Spotted Shipping Code'];

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanvi Sawant - Data Visualization Portfolio</title>
-    <link rel="stylesheet" href="styles.css?v=32">
+    <link rel="stylesheet" href="styles.css?v=33">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -63,9 +63,18 @@
             <h1 class="hero-title">Welcome to my <span class="highlight">Portfolio</span></h1>
         </div>
 
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <filter id="paperCrumple" x="-40%" y="-40%" width="180%" height="180%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.018 0.035" numOctaves="3" seed="7" result="noise"></feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G">
+                    <animate id="crumpleAnim" attributeName="scale" from="80" to="0" dur="1.4s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1"></animate>
+                </feDisplacementMap>
+            </filter>
+        </svg>
+
         <div class="hero-container">
             <div class="hero-content-center">
-                <div class="prophet-card" id="prophetCard">
+                <div class="prophet-card crumpled" id="prophetCard">
                     <div class="prophet-masthead">
                         <div class="prophet-name">The Daily Prophet</div>
                         <div class="prophet-tagline">Special Tech Edition</div>
