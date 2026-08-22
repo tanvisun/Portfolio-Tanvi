@@ -451,16 +451,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const crumpleAnim = document.getElementById('crumpleAnim');
     const owl = document.getElementById('owlCourier');
-    const seal = document.getElementById('prophetSeal');
-    const sigPath = document.getElementById('sigPath');
-
-    // Prep the quill signature for a stroke-draw reveal
-    if (sigPath) {
-        const len = sigPath.getTotalLength();
-        sigPath.style.strokeDasharray = len;
-        sigPath.style.strokeDashoffset = len;
-        sigPath.style.transition = 'stroke-dashoffset 1.1s ease';
-    }
 
     let entranceStarted = false;
 
@@ -495,20 +485,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     prophetCard.classList.remove('unfolding');
                 }, 2950);
 
-                // 5. Wax seal thumps down
-                setTimeout(() => {
-                    if (seal) seal.classList.add('stamped');
-                }, 3050);
-
-                // 6. Quill signs off
-                setTimeout(() => {
-                    if (sigPath) sigPath.style.strokeDashoffset = '0';
-                }, 3700);
-
-                // 7. Cursor-tilt only kicks in once everything has settled
+                // 5. Cursor-tilt only kicks in once everything has settled
                 setTimeout(() => {
                     prophetCard.dataset.entranceDone = 'true';
-                }, 4800);
+                }, 3400);
             }
         });
     }, { threshold: 0.3 });
