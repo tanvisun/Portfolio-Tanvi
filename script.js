@@ -443,3 +443,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     trails.forEach(trail => trailObserver.observe(trail));
 });
+
+// Daily Prophet card: ink-reveal headline + cycling mini-headline
+document.addEventListener('DOMContentLoaded', () => {
+    const prophetCard = document.getElementById('prophetCard');
+    if (!prophetCard) return;
+
+    const inkObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                prophetCard.classList.add('ink-revealed');
+                inkObserver.disconnect();
+            }
+        });
+    }, { threshold: 0.4 });
+    inkObserver.observe(prophetCard);
+
+    const miniHeadlines = ['Breaking News', 'New Project Discovered', 'Engineer Spotted Shipping Code'];
+    const miniEl = document.getElementById('prophetMiniHeadline');
+    let miniIndex = 0;
+
+    if (miniEl) {
+        setInterval(() => {
+            miniEl.classList.add('fading');
+            setTimeout(() => {
+                miniIndex = (miniIndex + 1) % miniHeadlines.length;
+                miniEl.textContent = miniHeadlines[miniIndex];
+                miniEl.classList.remove('fading');
+            }, 800);
+        }, 3600);
+    }
+});

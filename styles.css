@@ -204,10 +204,30 @@ body.lumos-dark .nav-link {
     align-items: center;
 }
 
+.hero-top-title {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 5;
+}
+
+.hero-top-title .hallows-mark {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 0.75rem;
+}
+
+.hero-top-title .hero-title {
+    font-size: 2rem;
+}
+
 .hero-content-center {
     text-align: center;
-    max-width: 600px;
-    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    padding: 0;
     background: transparent;
     border-radius: 20px;
     backdrop-filter: none;
@@ -1834,5 +1854,250 @@ body.lumos-dark .nav-link {
 @media (max-width: 480px) {
     .internship-card {
         padding: 1.25rem 1.5rem;
+    }
+}
+
+/* ===================================================
+   The Daily Prophet — dynamic newspaper card
+   =================================================== */
+
+.prophet-card {
+    width: min(360px, 86vw);
+    background-color: #e8dcbd;
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 250, 235, 0.12) 0%, rgba(74, 47, 24, 0.28) 100%),
+        url('assets/parchment-tile.jpg');
+    background-size: cover, 340px 340px;
+    background-blend-mode: multiply, normal;
+    padding: 1.5rem 1.4rem 1.7rem;
+    clip-path: var(--torn-edge);
+    box-shadow: 0 8px 24px rgba(20, 12, 5, 0.45), inset 0 0 40px rgba(74, 47, 24, 0.15);
+    transform: rotate(-2deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    text-align: left;
+    filter: sepia(0.12) contrast(1.04);
+}
+
+.prophet-card:hover {
+    transform: rotate(0deg) scale(1.045);
+    box-shadow: 0 18px 42px rgba(20, 12, 5, 0.55), inset 0 0 40px rgba(74, 47, 24, 0.15);
+}
+
+/* Barely-there paper grain flicker */
+.prophet-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    clip-path: inherit;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%25" height="100%25" filter="url(%23n)" opacity="0.16"/></svg>');
+    mix-blend-mode: overlay;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: prophet-paper-flicker 6s ease-in-out infinite;
+}
+
+@keyframes prophet-paper-flicker {
+    0%, 100% { opacity: 0.24; }
+    50% { opacity: 0.36; }
+}
+
+.prophet-masthead {
+    text-align: center;
+    position: relative;
+}
+
+.prophet-name {
+    font-family: 'HarryPotter', serif;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    color: #1a0f06;
+    line-height: 1.1;
+}
+
+.prophet-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #4a2f18;
+    margin-top: 3px;
+}
+
+.prophet-rule {
+    height: 1px;
+    background: repeating-linear-gradient(90deg, #2b1b0f 0 6px, transparent 6px 9px);
+    margin: 0.55rem 0;
+    opacity: 0.65;
+}
+
+.prophet-rule--thick {
+    height: 3px;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.prophet-headline {
+    text-align: center;
+    margin: 0.25rem 0;
+}
+
+.prophet-headline-text {
+    font-family: 'HarryPotter', serif;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    background-image: linear-gradient(90deg, #1a0f06 0%, #1a0f06 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 0.4px rgba(26, 15, 6, 0.18);
+    transition: background-size 2.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.prophet-card.ink-revealed .prophet-headline-text {
+    background-size: 100% 100%;
+}
+
+.prophet-body {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    margin-top: 0.5rem;
+}
+
+.prophet-photo-frame {
+    flex: 0 0 auto;
+    width: 42%;
+    aspect-ratio: 3 / 4;
+    border: 3px solid #2b1b0f;
+    box-shadow: 0 0 0 1px #e8dcbd, 0 3px 8px rgba(20, 12, 5, 0.4);
+    overflow: hidden;
+    position: relative;
+    clip-path: polygon(1% 2%, 97% 0%, 100% 96%, 3% 100%);
+}
+
+.prophet-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) sepia(0.35) contrast(1.25) brightness(0.95);
+    display: block;
+}
+
+.prophet-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at center, #cdbb8e 0%, #a89065 100%);
+    color: rgba(26, 15, 6, 0.55);
+    font-size: 2.2rem;
+}
+
+.prophet-photo-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%25" height="100%25" filter="url(%23n)" opacity="0.25"/></svg>');
+    mix-blend-mode: multiply;
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.prophet-side {
+    flex: 1;
+    min-width: 0;
+}
+
+.prophet-mini-headline {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+    color: #1a0f06;
+    line-height: 1.25;
+    min-height: 2.1em;
+    transition: opacity 0.8s ease, filter 0.8s ease;
+}
+
+.prophet-mini-headline.fading {
+    opacity: 0;
+    filter: blur(2px);
+}
+
+.prophet-caption {
+    font-family: 'Crimson Text', serif;
+    font-size: 0.68rem;
+    line-height: 1.35;
+    color: #3b2712;
+    margin-top: 0.4rem;
+}
+
+.prophet-article {
+    font-family: 'Crimson Text', serif;
+    font-size: 0.74rem;
+    line-height: 1.45;
+    color: #2b1b0f;
+    margin-top: 0.85rem;
+}
+
+.prophet-footsteps {
+    position: relative;
+    height: 16px;
+    margin-top: 0.9rem;
+    overflow: hidden;
+}
+
+.p-print {
+    position: absolute;
+    top: 0;
+    left: -6%;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    background: #1a0f06;
+    -webkit-mask-image: var(--shoe-print);
+    mask-image: var(--shoe-print);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    animation: prophet-walk 4.2s linear infinite;
+}
+
+.p-print:nth-child(1) { animation-delay: 0s; }
+.p-print:nth-child(2) { animation-delay: 1.05s; }
+.p-print:nth-child(3) { animation-delay: 2.1s; }
+.p-print:nth-child(4) { animation-delay: 3.15s; }
+
+@keyframes prophet-walk {
+    0% { left: -6%; opacity: 0; transform: rotate(220deg) scale(0.8); }
+    10% { opacity: 0.7; }
+    85% { opacity: 0.7; }
+    100% { left: 98%; opacity: 0; transform: rotate(220deg) scale(0.8); }
+}
+
+@media (max-width: 480px) {
+    .prophet-card {
+        padding: 1.2rem 1.1rem 1.4rem;
+    }
+
+    .prophet-name {
+        font-size: 1.3rem;
+    }
+
+    .prophet-headline-text {
+        font-size: 1.1rem;
+    }
+
+    .hero-top-title {
+        top: 90px;
+    }
+
+    .hero-top-title .hero-title {
+        font-size: 1.5rem;
     }
 }
