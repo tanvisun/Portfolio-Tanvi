@@ -2057,40 +2057,20 @@ body.lumos-dark .nav-link {
     margin-top: 0.6rem;
 }
 
-.prophet-footsteps {
-    position: relative;
-    height: 16px;
-    margin-top: 0.9rem;
-    overflow: hidden;
+.prophet-icon-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 1rem;
+    color: #1a0f06;
+    opacity: 0.7;
 }
 
-.p-print {
-    position: absolute;
-    top: 0;
-    left: -6%;
-    width: 10px;
-    height: 10px;
-    opacity: 0;
-    background: #1a0f06;
-    -webkit-mask-image: var(--shoe-print);
-    mask-image: var(--shoe-print);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    animation: prophet-walk 4.2s linear infinite;
-}
-
-.p-print:nth-child(1) { animation-delay: 0s; }
-.p-print:nth-child(2) { animation-delay: 1.05s; }
-.p-print:nth-child(3) { animation-delay: 2.1s; }
-.p-print:nth-child(4) { animation-delay: 3.15s; }
-
-@keyframes prophet-walk {
-    0% { left: -6%; opacity: 0; transform: rotate(220deg) scale(0.8); }
-    10% { opacity: 0.7; }
-    85% { opacity: 0.7; }
-    100% { left: 98%; opacity: 0; transform: rotate(220deg) scale(0.8); }
+.prophet-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
 @media (max-width: 480px) {
