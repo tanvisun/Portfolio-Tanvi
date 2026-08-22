@@ -184,7 +184,7 @@ body.lumos-dark .nav-link {
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     background-color: transparent;
     background-image: url('assets/hogwarts-map-lines.png');
     background-size: 100% 100%;
@@ -198,10 +198,11 @@ body.lumos-dark .nav-link {
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 240px 20px 60px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .hero-top-title {
