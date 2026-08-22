@@ -2016,13 +2016,13 @@ body.lumos-dark .nav-link {
 }
 
 .prophet-mini-headline {
-    font-family: 'Cinzel', serif;
+    font-family: 'HarryPotter', serif;
     font-weight: 700;
-    font-size: 0.82rem;
+    font-size: 1.3rem;
     letter-spacing: 0.5px;
     color: #1a0f06;
-    line-height: 1.25;
-    min-height: 2.1em;
+    line-height: 1.15;
+    min-height: 2.3em;
     transition: opacity 0.8s ease, filter 0.8s ease;
 }
 
@@ -2041,10 +2041,10 @@ body.lumos-dark .nav-link {
 
 .prophet-article {
     font-family: 'Crimson Text', serif;
-    font-size: 0.74rem;
-    line-height: 1.45;
+    font-size: 0.72rem;
+    line-height: 1.4;
     color: #2b1b0f;
-    margin-top: 0.85rem;
+    margin-top: 0.6rem;
 }
 
 .prophet-footsteps {

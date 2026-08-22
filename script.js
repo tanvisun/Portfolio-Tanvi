@@ -459,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.4 });
     inkObserver.observe(prophetCard);
 
-    const miniHeadlines = ['Breaking News', 'New Project Discovered', 'Engineer Spotted Shipping Code'];
+    const miniHeadlines = ['The Girl Who Codes', 'Breaking News', 'New Project Discovered', 'Engineer Spotted Shipping Code'];
     const miniEl = document.getElementById('prophetMiniHeadline');
     let miniIndex = 0;
 
