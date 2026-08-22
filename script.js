@@ -27,31 +27,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll - Respect lumos-dark theme
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const body = document.body;
-    
-    // Check if we're using the lumos-dark theme
-    if (body.classList.contains('lumos-dark')) {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(0, 0, 0, 0.98)';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
-        } else {
-            navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
-    } else {
-        // Default light theme behavior
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
-    }
-});
 
 // Form submission handling with Excel integration
 const contactForm = document.querySelector('#contactForm');
@@ -124,7 +99,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.project-card, .stat-item, .skill-tag');
+    const animatedElements = document.querySelectorAll('.project-card, .stat-item, .skill-tag, .internship-card');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -156,31 +131,6 @@ document.querySelectorAll('.skill-tag').forEach(tag => {
         this.style.transform = 'scale(1)';
         this.style.boxShadow = 'none';
     });
-});
-
-// Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
-// Initialize typing effect when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 50);
-    }
 });
 
 // Parallax effect for hero section
@@ -468,166 +418,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }); 
 
-// Hogwarts Splash Screen Control
+
+// Footstep trail: walk into view on scroll, then fade away like ink on the map
 document.addEventListener('DOMContentLoaded', () => {
-    const hogwartsSplash = document.querySelector('.hogwarts-splash');
-    const movieIntro = document.querySelector('.movie-intro');
-    const heroContainer = document.querySelector('.hero-container');
-    
-    // Control splash screen timing
-    if (hogwartsSplash) {
-        // Hide splash after 4 seconds
-        setTimeout(() => {
-            hogwartsSplash.style.display = 'none';
-            
-            // Start movie intro after splash
-            if (movieIntro && heroContainer) {
-                heroContainer.style.opacity = '0';
-                
-                setTimeout(() => {
-                    heroContainer.style.opacity = '1';
-                    movieIntro.classList.add('finished');
-                    setTimeout(() => {
-                        movieIntro.style.display = 'none';
-                    }, 1000);
-                }, 8000);
+    const trails = document.querySelectorAll('.footstep-trail');
+    const trailObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const trail = entry.target;
+            if (entry.isIntersecting && !trail.classList.contains('visible')) {
+                trail.classList.remove('hiding');
+                trail.classList.add('visible');
+
+                clearTimeout(trail._hideTimer);
+                clearTimeout(trail._resetTimer);
+                trail._hideTimer = setTimeout(() => {
+                    trail.classList.add('hiding');
+                    trail._resetTimer = setTimeout(() => {
+                        trail.classList.remove('visible', 'hiding');
+                    }, 1600);
+                }, 2800);
             }
-        }, 4000);
-    }
-    
-    // Add skip functionality for splash
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && hogwartsSplash) {
-            hogwartsSplash.style.display = 'none';
-            if (heroContainer) {
-                heroContainer.style.opacity = '1';
-            }
-        }
-    });
-    
-    // Click to skip splash
-    hogwartsSplash?.addEventListener('click', () => {
-        hogwartsSplash.style.display = 'none';
-        if (heroContainer) {
-            heroContainer.style.opacity = '1';
-        }
-    });
+        });
+    }, { threshold: 0.4 });
+
+    trails.forEach(trail => trailObserver.observe(trail));
 });
-
-// Enhanced magical effects
-document.addEventListener('DOMContentLoaded', () => {
-    // Add magical sound effects (optional)
-    const addMagicalSounds = () => {
-        // This would add subtle sound effects for interactions
-        // For now, we'll just enhance the visual effects
-    };
-    
-    // Enhanced hover effects for project cards
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-            this.style.boxShadow = '0 15px 35px rgba(255, 215, 0, 0.3)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 4px 15px rgba(255, 215, 0, 0.2)';
-        });
-    });
-    
-    // Add magical typing effect to hero title
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        heroTitle.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < originalText.length) {
-                heroTitle.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        
-        // Start typing after splash and movie intro
-        setTimeout(typeWriter, 12000);
-    }
-}); 
-
-// Video Background Control
-document.addEventListener('DOMContentLoaded', () => {
-    const video = document.querySelector('.video-background video');
-    
-    if (video) {
-        // Ensure video loads properly
-        video.addEventListener('loadeddata', () => {
-            console.log('Video loaded successfully');
-        });
-        
-        // Handle video errors
-        video.addEventListener('error', () => {
-            console.log('Video failed to load, falling back to dynamic background');
-            document.querySelector('.dynamic-background').style.display = 'block';
-        });
-        
-        // Pause video when page is not visible (for performance)
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                video.pause();
-            } else {
-                video.play();
-            }
-        });
-        
-        // Ensure video plays on mobile
-        video.addEventListener('canplay', () => {
-            video.play().catch(e => {
-                console.log('Auto-play prevented, user interaction required');
-            });
-        });
-    }
-}); 
-
-
-
-// Harry Potter Theme Music Control
-document.addEventListener('DOMContentLoaded', () => {
-    const hpTheme = document.getElementById('hp-theme');
-    let musicStarted = false;
-    
-    // Start music on first user interaction
-    const startMusic = () => {
-        if (!musicStarted && hpTheme) {
-            hpTheme.volume = 0.3; // Set volume to 30%
-            hpTheme.play().then(() => {
-                musicStarted = true;
-                console.log('Harry Potter theme music started');
-            }).catch(e => {
-                console.log('Music autoplay prevented, user interaction required');
-            });
-        }
-    };
-    
-    // Start music on any user interaction
-    document.addEventListener('click', startMusic, { once: true });
-    document.addEventListener('keydown', startMusic, { once: true });
-    document.addEventListener('scroll', startMusic, { once: true });
-    
-    // Add music control button
-    const musicControl = document.createElement('button');
-    musicControl.innerHTML = '<i class="fas fa-music"></i>';
-    musicControl.className = 'music-control';
-    musicControl.title = 'Toggle Music';
-    document.body.appendChild(musicControl);
-    
-    musicControl.addEventListener('click', () => {
-        if (hpTheme.paused) {
-            hpTheme.play();
-            musicControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
-        } else {
-            hpTheme.pause();
-            musicControl.innerHTML = '<i class="fas fa-music"></i>';
-        }
-    });
-}); 
